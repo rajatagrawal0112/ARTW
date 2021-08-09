@@ -1,0 +1,134 @@
+<%- include('layout/header'); -%>
+ <div class="heading-row mb-20">
+    <div class="row align-item-center">
+       <div class="col-lg-6">
+          <h3 class="page-title"><span class="page-title-icon bg-gradient-primary text-white mr-2"><i class="mdi mdi-home"></i></span> Vault List </h3>
+       </div>
+  </div>
+  </div>
+  <div class="row">
+    <div class="col-lg-12 grid-margin stretch-card">
+      <div class="card">
+         <div class="card-header">
+           <div class="row" style="display: none;">
+            <div class="col-md-2">
+                  <div class="form-group">
+                    <select id="select-new" class="form-control">
+                        <option>Name</option>
+                        <option>Willian Smith</option>
+                        <option>Dia Firdaus</option>
+                        <option>Zimmy Wu</option>
+                      </select>
+                  </div>
+            </div>
+             <div class="col-md-3">
+                  <div class="form-group">
+                   <div class="input-group mb-3">
+                    <div class="input-group-prepend">
+                      <span class="input-group-text" id="basic-addon1">Start Date</span>
+                    </div>
+                    <input type="text" class="form-control" id="datepicker" placeholder="Date">
+                  </div>
+                  </div>
+              </div>
+              <div class="col-md-3">
+                    <div class="form-group">
+                     <div class="input-group mb-3">
+                      <div class="input-group-prepend">
+                        <span class="input-group-text" id="basic-addon1">End Date</span>
+                      </div>
+                      <input type="text" class="form-control" id="datepicker1" placeholder="Date">
+                    </div>
+                    </div>
+              </div>
+         </div>
+         </div> 
+        <div class="card-body table-responsive">
+          <table class="table">
+          
+            <thead>
+              <tr>
+                <th width="10%">
+                  User Email
+                </th>
+                <th width="8%">
+                  Starting Balance
+                </th>
+                <th width="10%">
+                  Start Date
+                </th>
+                <th width="5%">
+                  Days
+                </th>
+                <th width="8%">
+                  Deposit
+                </th>
+                <th width="8%">
+                  Interest Earned
+                </th>
+                <th width="8%">
+                  Withdrawal
+                </th>
+                <th width="10%">
+                  End Date
+                </th>
+                <th width="8%">
+                  Current Balance
+                </th>
+                <th width="10%">
+                  Action
+                </th>
+                <th width="10%">
+                  Created At
+                </th>
+
+              </tr>
+            </thead>
+               <tbody id="tbody">
+            <%if(stakes){%>
+            <%for(let vault of stakes){%>
+          
+            <tr>
+        
+              <td><%=vault.email%></td>
+              <td><%=vault.startingbalance%></td>
+    
+            
+              <td><%=vault.startdate%></td>
+           
+             <td><%=vault.days%></td>
+           
+              <td><%=vault.deposit%></td>
+              <td><%=vault.interest_earned%></td>
+              <%if(vault.withdrawal){%>
+              <td><%=vault.withdrawal%></td>
+              <%}else{%>
+                  <td>--</td>
+              <%}%>
+              <td><%=vault.enddate%></td>
+              <td><%=vault.current_coin_balance%></td>
+              <%if(vault.type=="withdrawl"){%>
+              <td>Withdrawn</td>
+              <%}else if(vault.type=="deposit"){%>
+                  <td>Deposited</td>
+              <%}else{%>
+                <td>Reinvested</td>
+              <%}%>
+             <td><%=vault.created_at%></td>
+          </tr>
+            <%}}%>
+            
+          </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+
+           
+<%- include('layout/footer'); -%>
+ <script>
+$(document).ready( function () {
+  $('.table').DataTable();
+} );
+</script>

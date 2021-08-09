@@ -1,0 +1,401 @@
+<%- include('header') %>
+
+<section class="for-dashboard-boxes">
+  <div class="container-fluid">
+         <div class="row m-0">
+           <div class=" stretch-card grid-margin">
+            <div class="card rown-dash-card">
+               <!-- <a href="painting-list.php"> -->
+                 <div class="card-body">
+                    <div class="left-side-new">
+                         <h4 class="font-weight-normal mb-3">Main wallet ARTW</h4>
+                        <h2 class=""><%=total_balance%></h2>
+                    </div>
+                    <div class="icon-side">
+                        <img src="assets/images/icons/money.png">
+                    </div>
+                  </div>
+               <!-- </a> -->
+            </div>
+          </div>
+          <div class=" stretch-card grid-margin">
+            <div class="card rown-dash-card">
+               <!-- <a href="painting-list.php"> -->
+                 <div class="card-body">
+                    <div class="left-side-new">
+                         <h4 class="font-weight-normal mb-3">Value In USD(Main wallet)</h4>
+                         <%if(total_usd!="" && total_usd!=null){%>
+                           <h2 class=""><%=total_usd%></h2>
+                           <%}else{%>
+                              <h2 class="">0</h2>
+                              <%}%>
+                        
+                    </div>
+                    <div class="icon-side">
+                       <img src="assets/images/icons/money.png">
+                    </div>
+                  </div>
+               <!-- </a> -->
+            </div>
+          </div>
+           <div class=" stretch-card grid-margin">
+            <div class="card rown-dash-card">
+               <!-- <a href="painting-list.php"> -->
+                 <div class="card-body">
+                    <div class="left-side-new">
+                         <h4 class="font-weight-normal mb-3">Amount Staked in ARTW</h4>
+                         <%if(total_current!="" && total_current!=null){%>
+                          <h2 class=""><%=total_current%></h2>
+                          <%}else{%>
+                             <h2 class="">0</h2>
+                             <%}%>
+                    </div>
+                    <div class="icon-side">
+                       <img src="assets/images/icons/money.png">
+                    </div>
+                  </div>
+               <!-- </a> -->
+            </div>
+          </div>
+          <!-- <div class=" stretch-card grid-margin">
+            <div class="card rown-dash-card">
+              
+                 <div class="card-body">
+                    <div class="left-side-new">
+                         <h4 class="font-weight-normal mb-3">Value In USD</h4>
+                         <%if(total_current_usd!="" && total_current_usd!=null){%>
+                          <h2 class=""><%=total_current_usd%></h2>
+                          <%}else{%>
+                             <h2 class="">0</h2>
+                             <%}%>
+                        
+                    </div>
+                    <div class="icon-side">
+                       <img src="assets/images/icons/money.png">
+                    </div>
+                  </div>
+              
+            </div>
+          </div> -->
+           <div class=" stretch-card grid-margin">
+            <div class="card rown-dash-card">
+               <!-- <a href="painting-list.php"> -->
+                 <div class="card-body">
+                    <div class="left-side-new">
+                         <h4 class="font-weight-normal mb-3">ARTW Withdrawn</h4>
+                         <%if(total_withdrawn!="" && total_withdrawn!=null){%>
+                          <h2 class=""><%=total_withdrawn%></h2>
+                          <%}else{%>
+                             <h2 class="">0</h2>
+                             <%}%>
+                    </div>
+                    <div class="icon-side">
+                        <img src="assets/images/icons/money.png">
+                    </div>
+                  </div>
+               <!-- </a> -->
+            </div>
+          </div>
+         
+          <div class=" stretch-card grid-margin">
+            <div class="card rown-dash-card">
+               <!-- <a href="painting-list.php"> -->
+                 <div class="card-body">
+                    <div class="left-side-new">
+                         <h4 class="font-weight-normal mb-3">Interest Earned in ARTW</h4>
+                         <%if(total_interest!="" && total_interest!=null){%>
+                          <h2 class=""><%=total_interest%></h2>
+                          <%}else{%>
+                             <h2 class="">0</h2>
+                             <%}%>
+                    </div>
+                    <div class="icon-side">
+                       <img src="assets/images/icons/money.png">
+                    </div>
+                  </div>
+               <!-- </a> -->
+            </div>
+          </div>
+            <div class=" stretch-card grid-margin">
+            <div class="card rown-dash-card">
+               <a href="" data-toggle="collapse" data-target="#demo">
+                 <div class="card-body">
+                    <div class="left-side-new">
+                        <h2 class="">Rules</h2>
+                    </div>
+                    <div class="icon-side">
+                       <img src="assets/images/icons/answer.png">
+                    </div>
+                  </div>
+               </a>
+            </div>
+          </div>
+        </div>
+        
+        <div class="row collapse" id="demo">
+           <div class="col-md-12">
+            
+             <div class="card rule-card mb-15">
+                <div class="card-body">
+                    <h3 class="page-title mb-15">Rule</h3>
+                    <ol class="sider-boar-rule">
+                      <li>Staking can be made in ARTW tokens only.</li>
+                     <li>Only Once the holding wallet has 1000 ARTW as interest, it can be withdrawn.</li>
+                      <li><%=interest.interest_rate%>% interest is added to holding wallet per day, in form of ARTW tokens.</li>
+                      <li>Minimum investment of 6000 ARTW (must be available in ARTW wallet).</li>
+                      <li>Minimum duration is 30 days.</li>
+                      <li>Withdraw amount should be equal to or less than 900000 ARTW.</li>
+                      <li>After the fixed staking period you have 3 options. First, Withdraw initially staked ARTW (in part or in full) and/or any ARTW earned (provided the amount earned has reached a minimum of 1000 ARTW). Second, Restake the tokens and interest for a further minimum 30 day period. Third, Do nothing. Tokens and interest will automatically be restaked for a further 30 day period after 7 days. This does not apply if any ARTW are withdrawn from the staked amount, and in that situation any remaining tokens will need to be manually restaked.</li>
+                        
+                        
+                    </ol>
+                </div>
+             </div>
+           </div>
+        </div>
+    </div>
+</section>
+
+
+<section >
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+               <div class="card current-balance-row">
+                   <div class="card-body">
+                       <div class="row align-items-center">
+                           <div class="col-md-3">
+                               <h4>Current Balance : </h4>
+                           </div>
+                           <div class="col-md-2">
+                                <div class="balance">
+                                   <span>
+                                    <td><%=rwn%></td>
+                                 
+                                   </span>
+                               </div>
+                           </div>
+                           <div class="col-md-2">
+                              <div class="balance">
+                                   USD <span><td><%=current_usd%></td></span>
+                               </div>
+                           </div>  
+                       </div> 
+                   </div>
+               </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+              <form action="/submit-stake-withdrawl" method="POST" id="validate_form">
+                <div class="card">
+                   <div class="card-body">
+                     <div class="form-body">
+                      <%if(err_msg!=""){%>
+                        <div class="alert alert-danger"><%=err_msg%></div>
+                      <%} if(success_msg!=""){%>
+                        <div class="alert alert-success"><%=success_msg%></div>
+                      <%}%>
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div class="">
+                                    <h4 class="withdraw-heading left-side">Withdraw</h4>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-12 col-lg-5 col-md-12">
+                                <div class="form-group row align-items-center">
+                                    <fieldset class="col-12">
+                                      <div class="input-group">
+                                        <input type="hidden" name="object_id" value="<%=object._id%>">
+                                        <input type="hidden" id="t_vault_balance" value="<%=current_balance%>">
+                                        <input type="hidden" id="usdValueRwn" value="<%=usdValue%>">
+                                        <input type="hidden" name="reciver_address" id="reciver_address" value="<%=wallet_address%>">
+                                        <input type="hidden" name="get_wallet_id" id="get_wallet_id" value="<%=wallet_id%>">
+                                        <input type="number"   name="current_coin_balance" class="form-control valid" data-rule-required="true" data-msg-required="Please enter ARTW amount." oninput="check(this)">
+                                    
+                                        <div class="input-group-append">
+                                          <span class="input-group-text" id="basic-addon4">ARTW</span>
+                                        </div>
+                                      </div>    
+                                                              
+                                    </fieldset>
+                                    <span id="errorMsg" style="color: red;"></span> 
+                                </div>
+                            </div>
+                            <div class="col-12 col-lg-2 col-md-12">
+                                <p class="mb-0 text-center font-medium-5">=</p>
+                            </div>
+                            <div class="col-12 col-lg-5 col-md-12">
+                                <div class="form-group row">
+                                    <fieldset class="col-12">
+                                      <div class="input-group">
+                                        <input class="form-control" type="text"  id="valueinUSD"  readonly="">
+                                        <div class="input-group-append">
+                                          <span class="input-group-text" id="basic-addon4">USD</span>
+                                        </div>
+                                      </div>
+                                    </fieldset>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="text-center mlti-btn">
+                            <button class="btn btn-common light-green" type="Submit" id="sub_btn">Submit</button>
+                            <button class="btn btn-common light-green">Cancel</button>
+                        </div>
+                    </div>  
+                   </div>
+               </div>
+              </form>
+            </div>
+            <!-- <div class="col-lg-6 col-md-6">
+              <form action="/deposit" method="POST">
+               <div class="card">
+                   <div class="card-body">
+                     <div class="form-body">
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div class="">
+                                    <h4 class="withdraw-heading left-side">Deposit</h4>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-12 col-lg-5 col-md-12">
+                                <div class="form-group row align-items-center">
+                                    <fieldset class="col-12">
+                                      <div class="input-group">
+                                        <input type="hidden" name="object_id" value="<%=object._id%>">
+                                        
+                                        <input type="number" step="any" min="0"  name="current_coin_balance" value="" oninput="check(this)"class="form-control valid">
+                                        <input type="number"   name="current_coin_balance" class="form-control valid">
+                                      
+                                       <span class="input-group-text" id="basic-addon4">Rowan</span>
+                                        <div class="input-group-append">
+                                          <span id="errorMsg" style="color: red;"></span>
+                                          
+                                        </div>
+                                      </div>                              
+                                    </fieldset>
+                                </div>
+                            </div>
+                            <div class="col-12 col-lg-2 col-md-12">
+                                <p class="mb-0 text-center font-medium-5">=</p>
+                            </div>
+                            <div class="col-12 col-lg-5 col-md-12">
+                                <div class="form-group row">
+                                    <fieldset class="col-12">
+                                      <div class="input-group">
+                                        <input class="form-control" type="text"  name="valueinUSD_current" readonly="">
+                                        <div class="input-group-append">
+                                          <span class="input-group-text" id="basic-addon4">USD</span>
+                                        </div>
+                                      </div>
+                                    </fieldset>
+                                </div>
+                            </div>
+                        </div>
+
+
+                        <label for="start">end date:</label>
+
+                        <input type="date" id="txtDate" name="endate" />
+
+                        <div class="text-center mlti-btn">
+                            <button class="btn btn-common light-green" type="Submit">Submit</button>
+
+
+                           
+                             
+                            
+                            <button class="btn btn-common light-green">Cancel</button>
+                        </div>
+                    </div>  
+                   </div>
+               </div>
+              </form>
+            </div> -->
+        </div>
+    </div>
+      
+  
+</section>
+
+
+
+<%- include('footer') %>
+
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+<script src="/admin_assets/js/jquery.validate.min.js"></script>
+<script type="text/javascript">
+  $('#validate_form').validate({
+        onfocusout: function(element) {
+        this.element(element);
+        },
+        errorClass: 'error_validate',
+        errorElement:'span',
+        highlight: function(element, errorClass) {
+        $(element).removeClass(errorClass);
+        },
+        submitHandler:function(form)
+           {   $('#errorMsg').html("");
+              $('#sub_btn').attr('disabled',true);
+              form.submit();       
+           }
+        });
+</script>
+<script>
+$(function(){
+    var dtToday = new Date();
+    
+    var month = dtToday.getMonth() + 1;
+    var day = dtToday.getDate();
+    var year = dtToday.getFullYear();
+    if(month < 10)
+        month = '0' + month.toString();
+    if(day < 10)
+        day = '0' + day.toString();
+    
+    var minDate= year + '-' + month + '-' + day;
+    
+    $('#txtDate').attr('min', minDate);
+});
+</script>
+
+
+<script>
+  function check(input) {
+    var vault_balance = $('#t_vault_balance').val();
+    $('#valueinUSD').val("");
+    if (parseFloat(input.value) > 0) {
+      $('#errorMsg').html("");
+      $('#valueinUSD').val("");
+      // alert(parseFloat(vault_balance));
+      // alert(parseFloat(input.value));
+      if(parseFloat(vault_balance)<parseFloat(input.value)){
+        // alert(parseFloat(vault_balance));
+        $('#errorMsg').html("");
+        $('#sub_btn').attr('disabled',true);
+        $('#errorMsg').html('Insufficient balance in your vault');
+      }else{
+        var usdValue = $('#usdValueRwn').val();
+        var total_val = parseFloat(input.value)*parseFloat(usdValue);
+        // alert(total_val);
+        $('#sub_btn').attr('disabled',false);
+      $('#valueinUSD').val("");
+
+        $('#errorMsg').html("");
+        $('#valueinUSD').val(total_val);
+      }
+      
+    } else {
+      $('#errorMsg').html("");
+      $('#sub_btn').attr('disabled',true);
+      $('#valueinUSD').val("");
+      $('#errorMsg').html('The amount must be greater than zero.');
+    }
+  }
+ </script>
+

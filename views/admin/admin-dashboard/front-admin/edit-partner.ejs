@@ -1,0 +1,162 @@
+<%- include('layout/header'); -%>
+ 
+<div class="heading-row mb-20">
+    <div class="row align-item-center">
+       <div class="col-lg-6">
+         <h3 class="page-title"><span class="page-title-icon bg-gradient-primary text-white mr-2"><i class="mdi mdi-account-multiple"></i></span> Edit Partner </h3>
+       </div>
+       <div class="col-lg-6">
+         <div class="text-right">
+           <div>
+             <a href="/partner-list" class="btn btn-common bg-gradient-primary">Go Back</a>
+           </div>
+         </div>
+       </div>
+  </div>
+  </div>
+    <div class="row">
+      <div class="col-md-12">
+        <div class="card">
+           <div class="card-body">
+             <div class="row">
+               <form action="/update_partner" enctype="multipart/form-data" method="POST" id="add_banner"  class="forms-sample">
+                
+               <div class="col-md-12">
+                 <div>
+                    <div class="profile-form mt-20">
+                      <div class="row">
+                        <div class="col-md-4">
+                             <div class="form-group">
+                                <label>Partner Logo Image(Size in Pixel 210*65)</label>
+                                <p class="note"></p>
+                                 <div class="border-gray document-upload-box">
+                                       <div class="text-left">
+                                          <div class="uploader-img">
+                                            <img id="user_profile_image_preview" src="assets/images/other/banner-dummy.jpg" class="m-t-5" >
+                                          </div>
+                                           <div class="input-group mb-3 mb-3 verification">
+                                              <input type="text" class="form-control" readonly="" id="text_img_name" data-rule-required="true" data-msg-required="Please select your Id.">
+                                              <span class="input-group-btn">
+                                                <span class="btn btn-common bg-gradient-primary btn-file1">
+                                                Upload <input type="file" id="imgInp6" value="" name="partner_image" accept="image/*" onchange="readURL(this);">
+                                                 <input type="hidden" name="old_image" value="<%= PartnerDetail.partner_image%>">
+                                                 <input type="hidden" name="id" value="<%= PartnerDetail._id%>">
+                                                </span>   
+                                              </span>
+                                             <!--  <button class="btn btn-common bg-gradient-primary ml-15">Remove</button> -->
+                                           </div>
+                                       </div>
+                                  </div>
+                              </div>
+                        </div>
+                        <div class="col-md-8">
+                            <div class="row">
+                             
+                              <div class="col-md-12">
+                                 <div class="form-group">
+                                    <label>Tittle</label>
+                                     <input type="text" name="title" class="form-control" id="" placeholder="Title" data-rule-required="true" data-msg-required="Please enter title." value="<%= PartnerDetail.title%>">
+                                  </div>
+                              </div>
+                              <div class="col-md-12">
+                                 <div class="form-group">
+                                  <label>Url</label>
+                                  <input type="text" name="url" class="form-control" id="" placeholder="Title" data-rule-required="true" data-msg-required="Please enter url." value="<%= PartnerDetail.url%>">
+                                </div>
+                              </div>
+                              <div class="col-md-12">
+                                <div class="form-group">
+                                  <label>Status</label>
+                                   <div class="box">
+                                    <select class="form-control" name="status" data-rule-required="true" data-msg-required="Please select status."  >
+                                      <option value="">Please select status</option>
+                                      <option value="active" <% if(PartnerDetail.status=='active'){ %>selected<% } %>>Active</option>
+                                      <option value="inactive" <% if(PartnerDetail.status=='inactive'){ %>selected<% } %>>Inactive</option>
+                                    </select>
+                                   </div>
+                                </div>
+                              </div>
+                            </div>
+                          
+                            
+                              
+                        </div>
+                       
+                      </div>
+                    
+                      
+                    
+                     
+                  
+                      <div class="popup-btn text-center">
+                       <button type="submit" class="btn btn-common bg-gradient-primary">Update</button>
+                        <a href="/partner-list" class="btn btn-common bg-gradient-primary">Cancel</a>
+
+                      </div>
+                      
+               
+
+                   </div>
+                 </div>
+               </div>
+             </form>
+             </div>
+           </div>
+        </div>
+      </div>
+    </div>
+
+           
+<%- include('layout/footer'); -%>
+ <script>
+$(document).ready( function () {
+  $('.table').DataTable();
+  var input = '<%= PartnerDetail.partner_image%>';
+  var src = '/home/partner/'+input;
+ 
+  $('#user_profile_image_preview').attr('src', src);
+} );
+</script>
+
+
+  <script type="text/javascript" > 
+function readURL(input) {
+if (input.files && input.files[0]) {
+var reader = new FileReader();
+reader.onload = function (e) {
+$('#user_profile_image_preview')
+.attr('src', e.target.result)
+.width(200)
+.height(150);
+};
+
+reader.readAsDataURL(input.files[0]);
+}
+var src = $('#imgInp6').val(); // "static/images/banner/blue.jpg"
+var tarr = src.split('/');      // ["static","images","banner","blue.jpg"]
+var file = tarr[tarr.length-1]; // "blue.jpg"
+var data = file.split('.')[0];  // "blue"
+
+//alert(data);
+$('#text_img_name').val(src);
+}
+
+</script>
+
+<script src="admin_assets/js/jquery.validate.min.js"></script>
+  <script type="text/javascript">
+
+               $(document).ready(function (){
+               $('#add_banner').validate({
+                     onfocusout: function(element) {
+                           this.element(element);
+                     },
+                     errorClass: 'error_validate',
+                     errorElement:'span',
+                     highlight: function(element, errorClass) {
+                      $(element).removeClass(errorClass);
+                     }
+                   });
+
+               });
+</script>

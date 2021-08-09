@@ -1,0 +1,203 @@
+<%- include('layout/header'); -%>
+
+<style type="text/css">
+  td {max-width: 150px !important;overflow: hidden !important}
+</style>
+  <div class="heading-row mb-20">
+    <div class="row align-item-center">
+       <div class="col-lg-6">
+          <h3 class="page-title"><span class="page-title-icon bg-gradient-primary text-white mr-2"><i class="mdi mdi-phone"></i></span> Dash Payment List </h3>
+       </div>
+       <div class="col-lg-6">
+       <div class="text-right">
+          <a href="#" onclick="printDiv()" ><img src="assets/images/icons/print@2x.png"></a>
+            <button type='button' style="cursor:pointer; border: none;padding: 0;" id="download"><img src="assets/images/icons/Download.png" style="height: 36px;"></button>
+        </div>
+       </div>
+  </div>
+  </div>
+  <div class="row">
+    <div class="col-lg-12 grid-margin stretch-card">
+
+      <div class="card">
+        <div class="card-body table-responsive"  id="user_div">
+          <table class="table" id="user_table">
+            <thead>
+              <tr>
+                <th>
+                  S.No.
+                </th>
+                <th>
+                  User Name
+                </th>
+                <th>
+                  ARTW Count
+                </th>
+                <th>
+                  Rate per ARTW 
+                </th>
+                  
+                <th>
+                  Total Amount
+                </th>
+                <th>
+                  Wallet Address
+                </th>
+                
+                <th>
+                 Transaction ID
+                </th>
+                <th>
+                 Image
+                </th>
+                 <th>
+                Payment Type
+                </th>
+                 <th>
+               Payment Status
+                </th>
+                <th>
+                  Created At
+                </th>
+
+              </tr>
+            </thead>
+               <tbody>
+            <%if(user_details){  var i=1;%>
+            <%for(let user_detail of user_details){%>
+
+            <tr>
+              <td><%=i%></td>
+              <td><%if(user_detail.user_id && user_detail.user_id != null && user_detail.user_id != undefined && user_detail.user_id != ""){%>
+                 <%=user_detail.user_id.first_name%> <%=user_detail.user_id.last_name%>
+                 <%}else{%>
+                  --
+                  <%}%>
+                </td>
+              <td><%=user_detail.rwn_count%></td>
+              
+              <td><%=user_detail.rate_per_rwn%></td>
+              <td><%=user_detail.total_amnt%></td>
+              <%if(user_detail.image!=""){%>
+              <td>--</td>
+              <td>--</td>
+              <td>
+                <img src="/tx_proof/<%=user_detail.image%>"></td>
+              <%}else{%>
+                <td><%=user_detail.sender_wallet_address%></td>
+                <td><%=user_detail.trnsaction_Id%></td>
+                 <td>No Image.</td>
+                <%}%>
+              
+              <td><%=user_detail.payment_type%></td>
+              <td><%=user_detail.payment_status%>
+              <%if(user_detail.payment_status=="Pending"){%>
+                <a href="/send-token?id=<%=user_detail._id%>">Approve</a>
+                <a href="/cancelDASH?id=<%=user_detail._id%>">cancel</a>
+                <%}%>
+              </td>
+
+              <td><%=moment(user_detail.created_at).format("YYYY-MM-DD hh:mm:ss")%></td>
+          </tr>
+          
+            <% i++;}}%>
+           
+          </tbody>
+                    </table>
+                   
+                  </div>
+                    <iframe name="print_frame" width="0" height="0" frameborder="0" src="about:blank"></iframe>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- {{!-- {{> admin_inner_footer}} --}} -->
+<%- include('layout/footer'); -%>
+
+ <script>
+$(document).ready( function () {
+  $('.table').DataTable();
+} );
+</script>
+    <script type="text/javascript">
+            
+        $(document).ready(function () {
+
+      
+        $('#user_table_filter input').addClass('form-control');
+        $('#user_table_filter label').addClass('card-title');
+        $('#user_table_length label').addClass('card-title');
+        $('#user_table_paginate a').addClass('card-title');
+        $('#user_table_info').addClass('card-title');
+
+    });
+
+     function confirm_deletion(){
+
+        if(confirm('Really you want to delete user?')){
+
+          return true;
+
+        }else{
+
+          return false;
+        }
+     }
+
+</script>
+
+<script type="text/javascript">
+
+function fnExcelReport() {
+  var table = document.getElementById('user_div'); // id of table
+  var tableHTML = table.outerHTML;
+  var fileName = 'User-List.xls';
+
+  var msie = window.navigator.userAgent.indexOf("MSIE ");
+
+  // If Internet Explorer
+  if (msie > 0 || !!navigator.userAgent.match(/Trident.*rv\:11\./)) {
+    dummyFrame.document.open('txt/html', 'replace');
+    dummyFrame.document.write(tableHTML);
+    dummyFrame.document.close();
+    dummyFrame.focus();
+    return dummyFrame.document.execCommand('SaveAs', true, fileName);
+  }
+  //other browsers
+  else {
+    var a = document.createElement('a');
+    tableHTML = tableHTML.replace(/  /g, '').replace(/ /g, '%20'); // replaces spaces
+    a.href = 'data:application/vnd.ms-excel,' + tableHTML;
+    a.setAttribute('download', fileName);
+    document.body.appendChild(a);
+    a.click();
+    document.body.removeChild(a);
+  }
+}
+
+function printDiv() {
+         window.frames["print_frame"].document.body.innerHTML = document.getElementById("user_div").innerHTML;
+         window.frames["print_frame"].window.focus();
+         window.frames["print_frame"].window.print();
+
+
+         
+       }
+</script>
+<script src="admin_assets/js/table2CSV.js"></script>
+<script>
+   $(document).ready(function () {
+    $('#user_table').each(function () {
+        var $table = $(this);
+
+        $("#download").click(function () {
+            var csv = $table.table2CSV({
+                delivery: 'value'
+            });
+            window.location.href = 'data:text/csv;charset=UTF-8,' 
+            + encodeURIComponent(csv);
+        });
+    });
+})
+</script>

@@ -1,0 +1,180 @@
+<%- include('layout/header'); -%>
+  <div class="heading-row mb-20">
+    <div class="row align-item-center">
+      <div class="col-lg-6">
+        <h3 class="page-title"><span class="page-title-icon bg-gradient-primary text-white mr-2"><i
+              class="mdi mdi-home"></i></span> Update Token Details </h3>
+      </div>
+      <div class="col-lg-6">
+        <div class="text-right">
+          <div>
+            <a href="/main-dashboard" class="btn btn-common bg-gradient-primary">Go Back</a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+  <div class="row">
+    <div class="col-md-12">
+
+      <div class="card">
+        <div class="card-body">
+          <% if(success_msg!=undefined && success_msg !='' ){ %>
+            <div class="alert alert-success text-center  flash_msg ">
+              <%= success_msg %>
+            </div>
+            <% }%>
+              <% if(err_msg!=undefined && err_msg!='' ){ %>
+                <div class="alert alert-danger text-center  succ_flash_msg">
+                  <%= err_msg %>
+                </div>
+                <% }%>
+                  <div class="row">
+                    <form action="/update-token-details" method="POST" id="Aboutu" class="forms-sample">
+                      <div class="col-md-12">
+
+
+                        <div class="profile-form mt-20">
+                          <div class="row">
+                            <div class="col-md-8">
+                              <div class="row">
+                                <div class="col-md-12">
+                                  <div class="form-group">
+                                    <label>Token Name</label>
+                                    <input type="text" name="token_name" class="form-control" id="" placeholder="Name"
+                                      data-rule-required="true" data-msg-required="Please enter token name."
+                                      value="ARTW">
+                                    <!--value="result.token_name"-->
+                                  </div>
+                                  <div class="form-group">
+                                    <label>Total Supply/Quantity</label>
+                                    <input type="text" name="total_quantity" class="form-control" id=""
+                                      placeholder="Quantity" data-rule-required="true"
+                                      data-msg-required="Please Enter Quantity." value="1000000"
+                                      onkeypress="return isNumdeciKey(event);" readonly>
+                                    <!--value="result.total_quantity"-->
+                                  </div>
+                                  <div class="form-group">
+                                    <label>Ether value for each token</label>
+                                    <input type="text" name="ether_value" class="form-control" id=""
+                                      placeholder="Ether value" data-rule-required="true"
+                                      data-msg-required="Please Enter Ether Value"
+                                      onkeypress="return isNumdeciKey(event);" value="1" %>" readonly>
+                                    <!-- value="1"-->
+                                  </div>
+                                  <div class="form-group">
+                                    <label>BTC value for each token</label>
+                                    <input type="text" name="btc_value" class="form-control" id=""
+                                      placeholder="Ether value" data-rule-required="true"
+                                      data-msg-required="Please Enter BTC Value"
+                                      onkeypress="return isNumdeciKey(event);" value="1" %>" readonly>
+                                    <!--value="result.btcValue"-->
+                                  </div>
+                                  <div class="form-group">
+                                    <label>USD value for each token</label>
+                                    <input type="text" name="USD_value" class="form-control" id=""
+                                      placeholder="Ether value" data-rule-required="true"
+                                      data-msg-required="Please Enter USD Value"
+                                      onkeypress="return isNumdeciKey(event);" value="2">
+                                    <!--value="result.usdValue"-->
+                                  </div>
+                                  <div class="form-group">
+                                    <label>Ripple value for each token</label>
+                                    <input type="text" name="xrp_value" class="form-control" id=""
+                                      placeholder="Ether value" data-rule-required="true"
+                                      data-msg-required="Please Enter XRP Value"
+                                      onkeypress="return isNumdeciKey(event);" value="1" readonly>
+                                    <!--value="result.xrpValue"-->
+                                  </div>
+                                  <div class="form-group">
+                                    <label>Litecoin value for each token</label>
+                                    <input type="text" name="ltc_value" class="form-control" id=""
+                                      placeholder="Ether value" data-rule-required="true"
+                                      data-msg-required="Please Enter LTC Value"
+                                      onkeypress="return isNumdeciKey(event);" value="2" readonly>
+                                    <!--value="result.ltcValue"-->
+                                  </div>
+                                  <div class="form-group">
+                                    <label>Dash value for each token</label>
+                                    <input type="text" name="dash_value" class="form-control" id=""
+                                      placeholder="Ether value" data-rule-required="true"
+                                      data-msg-required="Please Enter Dash Value"
+                                      onkeypress="return isNumdeciKey(event);" value="100" readonly>
+                                    <!--value="result.dashValue"-->
+                                  </div>
+                                  <div class="form-group">
+                                    <label>Remaining Tokens</label>
+                                    <input type="text" name="remaining_quantity" class="form-control" id=""
+                                      placeholder="Remaining Quantity" value="<%=actual_balance%>" readonly="readonly">
+                                  </div>
+                                </div>
+                              </div>
+                              <input type="hidden" value="ID455165" name="edit_id">
+                              <!--value="result._id"-->
+                              <div class="popup-btn">
+                                <button type="submit" class="btn btn-common bg-gradient-primary">Update</button>
+                                <a href="/main-dashboard" class="btn btn-common bg-gradient-primary">Cancel</a>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </form>
+                  </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+
+  <%- include('layout/footer'); -%>
+    <script src="https://cdn.ckeditor.com/4.13.1/standard/ckeditor.js"></script>
+    <script>
+      CKEDITOR.replace('content');
+    </script>
+
+
+    <script type="text/javascript">
+      function readURL(input) {
+        if (input.files && input.files[0]) {
+          var reader = new FileReader();
+          reader.onload = function (e) {
+            $('#user_profile_image_preview')
+              .attr('src', e.target.result)
+              .width(200)
+              .height(150);
+          };
+
+          reader.readAsDataURL(input.files[0]);
+        }
+        var src = $('#imgInp6').val(); // "static/images/banner/blue.jpg"
+        var tarr = src.split('/');      // ["static","images","banner","blue.jpg"]
+        var file = tarr[tarr.length - 1]; // "blue.jpg"
+        var data = file.split('.')[0];  // "blue"
+
+        //alert(data);
+        $('#text_img_name').val(src);
+      }
+
+    </script>
+
+
+    <script src="admin_assets/js/jquery.validate.min.js"></script>
+    <script type="text/javascript">
+
+      $(document).ready(function () {
+        $('#Aboutu').validate({
+          onfocusout: function (element) {
+            this.element(element);
+          },
+          errorClass: 'error_validate',
+          errorElement: 'span',
+          highlight: function (element, errorClass) {
+            $(element).removeClass(errorClass);
+          }
+        });
+
+      });
+    </script>

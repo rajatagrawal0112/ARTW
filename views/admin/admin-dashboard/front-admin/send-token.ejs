@@ -1,0 +1,311 @@
+<%- include('layout/header'); -%>
+ 
+<div class="heading-row mb-20">
+    <div class="row align-item-center">
+       <div class="col-lg-6">
+          <h3 class="page-title"><span class="page-title-icon bg-gradient-primary text-white mr-2"><i class="mdi mdi-home"></i></span> Send Token</h3>
+       </div>
+       <div class="col-lg-6">
+         <div class="text-right">
+           <div>
+             <a href="main-dashboard" class="btn btn-common bg-gradient-primary">Go Back</a>
+           </div>
+         </div>
+       </div>
+  </div>
+  </div>
+    <div class="row">
+      <div class="col-md-12">
+        <div class="card">
+           <div class="card-body">
+            <%if(expressFlash.fail){%>
+            <div class="flash_msg" style="font-weight:bold;margin-bottom:20px;color:red;"><%=expressFlash.fail%></div>
+          <%}%>
+
+          <%if(expressFlash.success){%>
+            <div class="flash_msg" style="font-weight:bold;margin-bottom:20px;color:green;"><%=expressFlash.success%></div>
+            <%}%>
+             <div class="row">
+                  <form class="forms-sample" id="edit_user_form" action="javascript:void(0);" method='post' style="width:100%">
+                     <div class="col-md-12">
+                 <div>
+                    <div class="profile-form mt-20">
+                      <div class="row">
+                        <div class="col-md-4">
+                             <div class="form-group">
+                      <label for="exampleInputName1">Recipient Wallet Address <span style="color: red">*</span></label>
+                     <% if(reciever_address!=""){ %>
+                      <input type="text" class="form-control" value="<%= reciever_address%>" data-rule-required="true" name="recipient" data-msg-required="Please enter Recipient." id="recipient">
+                       <% }else{ %>
+                      <input type="text" class="form-control" data-rule-required="true" name="recipient" data-msg-required="Please enter Recipient." id="recipient">
+                       <% } %>
+                       <span class="show_err" style="color: red;"></span>
+                    </div>
+                    <div class="form-group">
+                      <label for="exampleInputEmail3">Withdraw From <span style="color: red">*</span></label>
+                          <input type="text" readonly="readonly" class="form-control"  name="withdraw_from" id="withdraw_from" data-rule-required="true" data-msg-required="Please enter Withdraw From." value="<%=sender_address%>" >
+                    </div>
+                    <div class="form-group">
+                      <label for="exampleInputName1">Amount (ARTW) <span style="color: red">*</span></label>
+                     <% if(amount!=""){ %>
+                     <input type="number" min="0" class="form-control bg-white" value="<%= amount%>" name="amount" id="amount" placeholder="0.00" data-rule-required="true"  data-msg-required="Please enter Amount." onkeypress="return isNumdeciKey(event);">
+                     <% }else{ %>
+                      <input type="number" min="0" class="form-control bg-white" name="amount" id="amount" placeholder="0.00" data-rule-required="true"  data-msg-required="Please enter Amount." onkeypress="return isNumdeciKey(event);">
+                     <% } %>
+                     <!-- <div class="input-group-append">
+                                            <span class="input-group-text bg-white">ROWAN</span>
+                                          </div> -->
+                                            <!-- <span class="input-group-text bg-white">ROWAN</span> -->
+                                         
+                                           <span for="amount" class="error_validate"></span>
+                    </div>
+                    <div class="form-group">
+                      <input type="hidden" name="bonusWalletAddress" id="bonusWalletAddress" value="<%=bonusWalletAddress%>">
+                      <input type="hidden" name="bonusAmount" id="bonusAmount" value="<%=bonusAmount%>">
+                      <input type="hidden" name="orderId1" id="orderId1" value="<%=id%>">
+                      <input type='hidden' name='user_m_id' value="<%=user_main_id%>">
+                      <input type="hidden" name="refID12" id="refID12" value="<%=refID%>">
+                      <input type="hidden" name="userId" id="userId" value="<%=user_id%>">
+                    </div>
+                    <!-- <button type="submit" class="btn btn-success mr-2">Submit</button>
+                    <a href="/admin-dashboard" class="btn btn-light">Cancel</a> -->
+                    <div class="col-md-12">
+                                   <div class="text-center mlti-btn">
+                                      <input type="button" onclick="reset()" class="btn btn-common bg-gradient-primary"value="Reset" id="cancel_btn" name="cancel">
+                                     <!--  <button class="btn btn-common light-green" data-toggle="modal" data-target="#keyModal">Send BTC</button> -->
+                                   <!--   <input type="submit" id="sub_btn" name="submit" value="Send" class="btn btn-success mr-2"> -->
+
+                                         <button type="submit" id="sub_btn" name="Send" class="btn btn-common bg-gradient-primary">Send</button>
+                     <!--    <a href="main-dashboard" class="btn btn-common bg-gradient-primary" onclick="reset()">Cancel</a>
+ -->
+                                   </div>
+                                </div>
+                  </form>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div></div></div></div></div>
+        <!-- Modal -->
+<div class="modal fade modal-key" id="keyModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      
+      <div class="modal-body">
+        <div class="row">
+          <div class="col-md-12">
+            <form id="key-form" method="post" action="/submit-token"> 
+              <!-- /submit-token -->
+            <h3 class="green-heading text-center">Enter Your Passphrase</h3>
+             <p class="text-upper text-center">Please enter your Passphrase stored with you.</p> 
+            <div class="form-group">
+              <input type="password" name="enter_passphrase" class="form-control" id="enter_passphrase" data-rule-required="true"  data-msg-required="Please enter Passphrase." autocomplete="off" >
+            </div>
+           <input type="hidden" name="orderId" id="orderId" value="">
+          <input type="hidden" name="sender_address" id="sender_address" value="">
+
+          <input type="hidden" name="reciver_address" id="reciver_address" value="">
+
+          <input type="hidden" name="amount_send" id="amount_send" value="">
+
+          <input type="hidden" name="user_cr_pass" id="user_cr_pass" value=""> 
+
+          <input type="hidden" name="get_wallet_id" id="get_wallet_id" value="">
+
+           <input type="hidden" name="bonusamount" id="bonusamount" value="">
+          
+           <input type="hidden" name="bonusAddress" id="bonusAddress" value="">
+
+           <input type="hidden" name="refID" id="refID" value="">
+
+           <input type="hidden" name="user_id" id="user_id" value="">
+            <div class="text-center mt-4">
+              <input type="submit" name="submit1" value="Submit" id="sub_btn1" class="btn btn-common light-green">
+              <!-- <a href="send-history.php" class="btn btn-common light-green">Submit</a> -->
+            </div>
+            </form>
+          </div>
+        </div>
+      </div>
+     
+    </div>
+  </div>
+</div>
+</div></div></div></div></div>
+<%- include('layout/footer'); -%>
+ <!--  <script type="text/javascript">
+
+               $(document).ready(function (){
+               $('#edit_user_form').validate({
+                     onfocusout: function(element) {
+                           this.element(element);
+                     },
+                     errorClass: 'error_validate',
+                     errorElement:'span',
+                     highlight: function(element, errorClass) {
+                      $(element).removeClass(errorClass);
+                     }
+                   });
+
+               });
+</script> -->
+
+<script>
+  function reset(){
+    $('#recipient').val("");
+    $('#amount').val("");
+  }
+</script>
+<script src="/admin_assets/js/jquery.validate.min.js"></script>
+
+<script type="text/javascript">
+
+$('#edit_user_form').validate({
+      onfocusout: function(element) {
+      this.element(element);
+      },
+      errorClass: 'error_validate',
+      errorElement:'span',
+      highlight: function(element, errorClass) {
+      $(element).removeClass(errorClass);
+      },
+      submitHandler:function(form)
+         {   
+
+           var address=$('#recipient').val();
+                if(address != "")
+                {
+                if (!/^(0x)?[0-9a-f]{40}$/i.test(address)) {
+                alert('Please enter valid wallet address.');
+                // $('#eth_address_err').html('Please enter valid wallet address');
+                $('#recipient').val("");
+                return false;
+                } 
+                else(/^(0x)?[0-9a-f]{40}$/.test(address) || /^(0x)?[0-9A-F]{40}$/.test(address))
+                {
+                   $("#keyModal").modal("show");   
+                  var sender_add=$('#withdraw_from').val();
+                  var recier_add=$('#recipient').val();
+                  var send_amount=$('#amount').val();
+                  var correct_pass=$('#passphrase').val();
+                  var wallet_id=$('#wallet_id').val();
+                  var bonusAmount = $('#bonusAmount').val();
+                  var bonusAddress = $('#bonusWalletAddress').val();
+                  var orderID = $('#orderId1').val();
+                  var bonusID = $('#refID12').val();
+                  var user_id = $('#userId').val();
+                  $('#enter_passphrase').val("");
+
+                  $('#sender_address').val(sender_add);
+                  $('#reciver_address').val(recier_add);
+                  $('#amount_send').val(send_amount);
+                  $('#user_cr_pass').val(correct_pass);
+                  $('#get_wallet_id').val(wallet_id);
+                   $('#bonusamount').val(bonusAmount);
+                  $('#bonusAddress').val(bonusAddress);
+                  $('#refID').val(bonusID);
+                  $('#user_id').val(user_id);
+                  $('#orderId').val(orderID);
+                } 
+                }
+                else
+                {
+                  $("#keyModal").modal("show");   
+                  var sender_add=$('#withdraw_from').val();
+                  var recier_add=$('#recipient').val();
+                  var send_amount=$('#amount').val();
+                  var correct_pass=$('#passphrase').val();
+                  var wallet_id=$('#wallet_id').val();
+                  var bonusAmount = $('#bonusAmount').val();
+                  var bonusAddress = $('#bonusWalletAddress').val();
+                   var bonusID = $('#refID12').val();
+                 var user_id = $('#userId').val();
+                  $('#enter_passphrase').val("");
+
+                  $('#sender_address').val(sender_add);
+                  $('#reciver_address').val(recier_add);
+                  $('#amount_send').val(send_amount);
+                  $('#user_cr_pass').val(correct_pass);
+                  $('#get_wallet_id').val(wallet_id);
+                  $('#bonusamount').val(bonusAmount);
+                  $('#bonusAddress').val(bonusAddress);
+                   $('#refID').val(bonusID);
+                   $('#user_id').val(user_id);
+                }
+
+         }
+      });
+</script>
+ <script> 
+      
+       
+            $("#recipient").blur(function() { 
+              var reciver_address=$('#recipient').val();
+              var sender_address=$('#withdraw_from').val();
+                // alert(reciver_address.trim());
+                // alert(sender_address.trim());
+                
+                if (reciver_address.trim() == sender_address.trim()) {
+                   $('.show_err').html("Recipient and Sender address both couldn't be same.");
+                     // $('.show_err').html('hghjjhjh'); 
+                     setTimeout(function(){ $('.show_err').html('');$('#recipient').val('');
+              },4000);
+
+                }
+            }); 
+      
+    </script> 
+
+<script type="text/javascript">
+$('#key-form').validate({
+      onfocusout: function(element) {
+      this.element(element);
+      },
+      errorClass: 'error_validate',
+      errorElement:'span',
+      highlight: function(element, errorClass) {
+      $(element).removeClass(errorClass);
+      },
+      submitHandler:function(form)
+         {   
+            $('#sub_btn1').attr('disabled',true);
+            form.submit();       
+         }
+      });
+</script>
+
+<script type="text/javascript">
+  $('#cancel_btn').click(function(){
+    location.reload();
+  })
+</script>
+<script type="text/javascript">
+function isNumdeciKey(evt)
+{
+var charCode = (evt.which) ? evt.which : evt.keyCode;
+if (charCode != 46 && charCode > 31 
+&& (charCode < 48 || charCode > 57))
+return false;
+return true;
+}
+
+ function isNumberKey(evt)
+    {
+                 var charCode = (evt.which) ? evt.which : evt.keyCode
+
+                // alert(charCode);
+                 if (charCode > 31 && (charCode < 48 || charCode > 57))
+                    return false;
+                 return true;
+    }
+</script>
+<script type="text/javascript">
+$(document).ready(function () {
+var flash_msg=$('.flash_msg').html();
+if(flash_msg!="" && flash_msg!=undefined)
+{
+  setTimeout(function(){ $('.flash_msg').html('');},5000);
+}    
+});
+</script>

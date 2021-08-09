@@ -1,0 +1,54 @@
+<%- include('header') %>
+
+<section class="dash-inner-sec">
+    <div class="container">
+        <div class="row">
+             <div class="col-lg-10 offset-lg-1 col-md-12">
+                 <div class="dashboard-box">
+                     <div class="create-wallet-block">
+                           <h3 class="main-heading wow slideInLeft">ARTW Coin</h3> 
+                           <h4 class="green-heading wow slideInRight">Conratulations!</h4>
+                           <p class="head-commn-text wow slideInUp">Your wallet is successfully imported. Here is your wallet address.</p>
+                           
+                          <div class="form-group enter-private-key input-dash wow slideInLeft">
+                             <input class="form-control" type="text" value="<%= wallet_address %>">
+                          </div>
+
+                         
+
+                          <div class="text-center for-success">
+                              <a href="/dashboard" class="btn btn-common light-green">Continue</a>
+                          </div>
+                        </div>
+                 </div>
+             </div>
+        </div>
+    </div>
+</section>
+<!-- <section class="dash-inner-sec">
+    <div class="container">
+        <div class="row">
+             <div class="col-lg-10 offset-lg-1 col-md-12">
+                 <div class="dashboard-box">
+                     <div class="create-wallet-block">
+                         
+                            <h3 class="main-heading wow slideInLeft">ARTW Coin</h3> 
+                            <h4 class="green-heading wow slideInRight">Conratulations!</h4>
+                            <p class="head-commn-text wow slideInUp">Your wallet is successfully imported. Here is your wallet address.</p>
+                           
+                            <div class="form-group enter-private-key input-dash wow slideInLeft">
+                                <input class="form-control" type="text" value="<%= wallet_address %>" readonly>
+                            </div>
+                            <div class="text-center for-success">
+                                <a href="/dashboard" class="btn btn-common light-green">Continue</a>
+                            </div>
+                        </div>
+                 </div>
+             </div>
+        </div>
+    </div>
+</section> -->
+
+
+
+<%- include('footer') %>

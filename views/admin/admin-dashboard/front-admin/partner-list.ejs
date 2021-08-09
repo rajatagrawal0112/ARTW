@@ -1,0 +1,83 @@
+<%- include('layout/header'); -%>
+ <div class="heading-row mb-20">
+    <div class="row align-item-center">
+       <div class="col-lg-6">
+        <h3 class="page-title"><span class="page-title-icon bg-gradient-primary text-white mr-2"><i class="mdi mdi-account-multiple"></i></span>Partners List </h3>
+       </div>
+       <div class="col-lg-6">
+         <div class="text-right">
+           <div>
+             <a href="add-new-partner" class="btn btn-common bg-gradient-primary">Add new Partner</a>
+           </div>
+         </div>
+       </div>
+  </div>
+
+  </div>
+  <div class="row">
+    <div class="col-lg-12 grid-margin stretch-card">
+      <div class="card">
+        <div class="card-body table-responsive">
+          <% if(success_msg!=undefined && success_msg !='' ){ %>
+                                <div class="alert alert-success text-center  flash_msg ">
+                                    <%= success_msg %>
+                                </div>
+                         <% }%>
+                          <% if(err_msg!=undefined && err_msg!=''){ %>
+                                <div class="alert alert-danger text-center  succ_flash_msg">
+                                    <%= err_msg %>
+                                </div>
+                         <% }%>
+          <table class="table">
+            <thead>
+              <tr>
+                <th width="10%">S. No.</th>
+                <th width="15%">Partner Image</th>
+                <th width="15%">Title</th>
+                <th width="10%">Url</th>
+                <th width="10%">Status</th>
+                <th width="10%">Action</th>
+              </tr>
+            </thead>
+            <tbody>
+              <% var i=1; if(PartnerData.length>0){ %> 
+              <% PartnerData.forEach(function(PartnerData){ %>
+              <tr>
+                <td><%= i %></td>
+                <td>
+                  <% if(PartnerData.partner_image){ %>
+                  <div class="normal-img">
+                    <img src="/home/partner/<%= PartnerData.partner_image%>">
+                  </div>
+                 <% }else{ %>--<%} %>
+                </td>
+                <td><%= PartnerData.title %></td>
+                
+                <td><%= PartnerData.url %></td>
+                <td><%= PartnerData.status %></td>
+                 <td>
+                  <div class="edit-icons">
+                   
+                    <a href="edit-partner?id=<%= PartnerData._id %>" data-toggle="tooltip" data-placement="top" title="Edit"><i class="mdi mdi-pencil"></i></a>
+                    <a href="delete-partner?id=<%= PartnerData._id %>" data-toggle="tooltip" data-placement="top" title="Delete"><i class="mdi mdi-close"></i></a>
+                  </div>
+                </td>
+              </tr>
+               <% i++; }) %> 
+              <% } %>
+
+          
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+
+           
+<%- include('layout/footer'); -%>
+ <script>
+$(document).ready( function () {
+  $('.table').DataTable();
+} );
+</script>

@@ -1,0 +1,141 @@
+.nice-select{
+    border: none !important;
+    width: 100%;
+    padding-left: 0;
+}
+.resent-box .mlti-btn .light-green {
+    padding: 10px 30px;
+}
+.dashboard-box {
+    padding: 20px;
+    min-height: auto;
+}
+.send-rwn-block .form-group .form-control {
+    padding: 10px 20px;
+    font-size: 12px;
+    font-weight: normal;
+    height: auto;
+    border-radius: 5px;
+}
+body {
+    font-family: 'Quicksand', sans-serif;
+}
+.form-group {
+    margin-bottom: 15px;
+}
+.send-rwn-block .input-group.send .form-control {
+    background-color: #fff!important;
+    border-radius: 5px 0 0 5px;
+}
+.send-rwn-block .input-group.send .input-group-text {
+    background-color: #e2e1ec!important;
+    border-radius: 0 5px 5px 0;
+    padding: 8px 20px;
+    color: #322B5E;
+    font-size: 14px;
+    font-weight: 700;
+}
+.for-history-icon .total-rwn {
+    margin: 10px 0 10px;
+}
+.next-block span {
+    line-height: 40px;
+}
+.bitcoin-flex-box{
+display: flex;
+align-items: center;
+justify-content: space-between;
+flex-wrap: wrap;
+}
+.for-token-page .d-flex img {
+    width: auto;
+    max-width: 100%;
+}
+.bitcoin-flex-box img{
+    height: 50px;
+}
+.center-box{
+    width: 50%;
+}
+.form-group .nice-select.form-control {
+    border: 1px solid #ddd !important;
+    padding: 0 10px;
+    height: 38px;
+}
+
+.form-control {
+    border-radius: 5px;
+}
+.copy-id-dash.input-group.input-dash .form-control {
+    border: none !important;
+    padding: 0;
+    text-align: center;
+    font-size: 18px;
+    color: #FF3598;
+    font-weight: 500;
+}
+.create-wallet-block .input-group.input-dash {
+    margin: 20px 0 20px;
+}
+.checkbox a{
+    color: #ff3598;
+}
+.checkbox .cr {
+    border: 1px solid #ff3598;
+    border-radius: 4px;
+}
+.green-heading {
+    font-size: 16px;
+}
+.main-heading {
+    font-size: 26px;
+    margin-bottom: 10px;
+}
+.head-commn-text {
+    margin: 12px auto 10px;
+}
+.checkbox {
+    margin: 10px 0 0;
+}
+.enter-passphrase.copy-id-dash.input-group.input-dash .form-control {
+    font-size: 14px;
+    padding: 10px 15px;
+    height: auto;
+}
+
+.table.dataTable.no-footer td a{
+    color: #ff3598;
+}
+.profile-input-form.create-wallet-block .form-group .form-control {
+    font-size: 14px;
+    background-color: transparent;
+    border: 1px solid #ddd !important;
+    padding: 0 15px;
+    border-radius: 5px;
+    height: 38px !important;
+}
+.card.steps-card{
+    background: #fff;
+    box-shadow: 2px 2px 10px rgb(0 0 0 / 20%);
+    border-radius: 10px;
+}
+.card.steps-card.for-all-pages {
+    height: 100%;
+    background: #fff;
+    box-shadow: 2px 2px 10px rgb(0 0 0 / 20%);
+    border-radius: 10px;
+}
+.shadow-box.dashboard-box.side-box-by-now {
+    margin-bottom: 15px !important;
+    height: calc(100% - 30px);
+}
+.img-box-side {
+    height: 100%;
+    background-color: #fff;
+    box-shadow: 2px 2px 10px rgb(0 0 0 / 20%);
+    border-radius: 10px;
+    text-align: center;
+}
+.img-box-side img {
+    max-height: 370px;
+}

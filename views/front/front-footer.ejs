@@ -1,0 +1,351 @@
+<footer class="footer-box">
+   <div class="container">
+        <div class="row">
+          <div class="col-md-8">
+            <div class="extra-links">
+              <ul>
+                <li>
+                  <a href="/#about">About</a>
+                </li>
+                 <li>
+                  <a href="/#contact">Contact Us</a>
+                </li>
+                <li>
+                  <a href="/faq">FAQs</a>
+                </li>
+                <li>
+                  <a href="/blogs">Blogs</a>
+                </li>
+                <!--  <li>
+                  <a href="/crypto-guide">Crypto guide</a>
+                </li> -->
+                <li>
+                  <a href="/privacy-policy">Privacy Policy</a>
+                </li>
+                <li>
+                  <a href="/terms-conditions">Terms & Conditions</a>
+                </li>
+                <li>
+                  <a href="/cookie-policy">Cookie policy</a>
+                </li>
+              </ul>
+            </div>
+            <div class="copy-right">
+             <p>© Copyright 2020 - ARTW. All Right Reserved by <a href="http://questglt.com/" target="_blank" style="color: #fff !important;text-decoration: underline;">Quest GLT</a></p>
+           </div>
+          </div>
+           <div class="col-md-4">
+            <div class="extra-links social-links">
+              <ul>
+                <li>
+                  <a href=""><span><i class="fab fa-telegram"></i></span></a>
+                </li>
+                <li>
+                  <a href=""><span><i class="fab fa-twitter"></i></span></a>
+                </li>
+                <li>
+                  <a href=""><span><i class="fab fa-facebook-f"></i></span></a>
+                </li>
+                <li>
+                  <a href=""><span><i class="fab fa-instagram"></i></span></a>
+                </li>
+                
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+</footer>
+
+<a href="#" class="scroll_top" title="Scroll to Top" style="display: block;"><i class="fas fa-arrow-up"></i></a>
+	<!-- JQuery -->
+        <script type="text/javascript" src="assets/js/jquery-3.3.1.min.js"></script>
+        <!-- <script type="text/javascript" src="assets/js/jquery-1.11.3.min.js"></script> -->
+        <!-- Bootstrap Core JavaScript -->
+        <script type="text/javascript" src="assets/js/bootstrap.min.js"></script>
+        <!-- dropdownhover effects JavaScript -->
+        <script type="text/javascript" src="assets/js/bootstrap-dropdownhover.min.js"></script>
+        <!-- wow JavaScript -->
+        <script type="text/javascript" src="assets/js/wow.min.js"></script>
+        <!-- slick JavaScript -->
+        <script type="text/javascript" src="assets/js/slick.js"></script>
+         <script type="text/javascript" src="assets/js/slick.min.js"></script>
+
+        <!-- Custom JavaScript -->
+        <script type="text/javascript" src="assets/js/custom.js"></script>
+        <script src="/assets/js/jquery.validate.min.js"></script>
+
+
+          <script>
+        $('.navbar-collapse a').click(function(){
+            $(".navbar-collapse").collapse('hide');
+        });
+    </script>
+
+        <script type="text/javascript">
+        $('#contact_form').validate({
+              onfocusout: function(element) {
+              this.element(element);
+              },
+              errorClass: 'error_validate',
+              errorElement:'span',
+              highlight: function(element, errorClass) {
+              $(element).removeClass(errorClass);
+              },
+              submitHandler:function(form)
+                 {
+                   $('#submit_login').attr('disabled',true);
+                   form.submit();
+                 }
+              });
+            </script>
+          <script type="text/javascript">
+            $(".banner-slider").slick({
+                dots: true,
+                autoplay: true,
+                autoplaySpeed: 3000,
+                infinite: true,
+                arrows: true,
+                slidesToShow: 1,
+                slidesToScroll: 1,
+                responsive: [
+                  {
+                    breakpoint: 768,
+                    settings: {
+                      arrows: false,
+                      centerMode: false,
+                      centerPadding: '40px',
+                      slidesToShow: 1,
+                      slidesToScroll: 1
+                    }
+                  },
+                  {
+                    breakpoint: 480,
+                    settings: {
+                      arrows: false,
+                      centerMode: false,
+                      centerPadding: '40px',
+                      slidesToShow: 1,
+                      slidesToScroll: 1
+                    }
+                  }
+                  ]
+              });
+
+             $(".mockup-slider").slick({
+                dots: false,
+                autoplay: true,
+                autoplaySpeed: 3000,
+                infinite: true,
+                arrows: true,
+                slidesToShow: 1,
+                slidesToScroll: 1,
+                responsive: [
+                  {
+                    breakpoint: 768,
+                    settings: {
+                      arrows: false,
+                      centerMode: false,
+                      centerPadding: '40px',
+                      slidesToShow: 1,
+                      slidesToScroll: 1
+                    }
+                  },
+                  {
+                    breakpoint: 480,
+                    settings: {
+                      arrows: false,
+                      centerMode: false,
+                      centerPadding: '40px',
+                      slidesToShow: 1,
+                      slidesToScroll: 1
+                    }
+                  }
+                  ]
+              });
+
+             $(".blog-slider").slick({
+                dots: true,
+                autoplay: true,
+                autoplaySpeed: 3000,
+                infinite: true,
+                arrows: true,
+                slidesToShow: 3,
+                slidesToScroll: 1,
+                responsive: [
+                  {
+                    breakpoint: 768,
+                    settings: {
+                      arrows: false,
+                      centerMode: false,
+                      centerPadding: '40px',
+                      slidesToShow: 1,
+                      slidesToScroll: 1
+                    }
+                  },
+                  {
+                    breakpoint: 480,
+                    settings: {
+                      arrows: false,
+                      centerMode: false,
+                      centerPadding: '40px',
+                      slidesToShow: 1,
+                      slidesToScroll: 1
+                    }
+                  }
+                  ]
+              });
+           
+        </script>
+           <script>
+               $("#main-nav li .nav-close").click(function(event) {
+                    $(".navbar-collapse").collapse('hide');
+                });
+            </script>
+
+            <script type="text/javascript">
+                $(window).scroll(function() {
+                        var scrollDistance = $(window).scrollTop();
+                        $('.page-section').each(function(i) {
+                                if ($(this).position().top <= scrollDistance + 100) {
+                                        $('.navigation li.active').removeClass('active');
+                                        $('.navigation li').eq(i).addClass('active');
+                                }
+                        });
+                }).scroll();
+            </script>
+            <script type="text/javascript">
+                 var main_url=window.location.href.split("#")[0];
+                 var hash_tag=window.location.href.split("#")[1];
+
+                 if(hash_tag!='' && hash_tag!=undefined)
+                 {
+                  window.location.href=main_url;
+                 }
+            </script>
+
+            <script>
+            	(function() {
+
+					  // VARIABLES
+					  const timeline = document.querySelector(".timeline ol"),
+					    elH = document.querySelectorAll(".timeline li > div"),
+					    arrows = document.querySelectorAll(".timeline .arrows .arrow"),
+					    arrowPrev = document.querySelector(".timeline .arrows .arrow__prev"),
+					    arrowNext = document.querySelector(".timeline .arrows .arrow__next"),
+					    firstItem = document.querySelector(".timeline li:first-child"),
+					    lastItem = document.querySelector(".timeline li:last-child"),
+					    xScrolling = 410,
+					    disabledClass = "disabled";
+
+					  // START
+					  window.addEventListener("load", init);
+
+					  function init() {
+					    setEqualHeights(elH);
+					    animateTl(xScrolling, arrows, timeline);
+					    setSwipeFn(timeline, arrowPrev, arrowNext);
+					    setKeyboardFn(arrowPrev, arrowNext);
+					  }
+
+					  // SET EQUAL HEIGHTS
+					  function setEqualHeights(el) {
+					    let counter = 0;
+					    for (let i = 0; i < el.length; i++) {
+					      const singleHeight = el[i].offsetHeight;
+
+					      if (counter < singleHeight) {
+					        counter = singleHeight;
+					      }
+					    }
+
+					    for (let i = 0; i < el.length; i++) {
+					      el[i].style.height = `${counter}px`;
+					    }
+					  }
+
+					  // CHECK IF AN ELEMENT IS IN VIEWPORT
+					  // http://stackoverflow.com/questions/123999/how-to-tell-if-a-dom-element-is-visible-in-the-current-viewport
+					  function isElementInViewport(el) {
+					    const rect = el.getBoundingClientRect();
+					    return (
+					      rect.top >= 0 &&
+					      rect.left >= 0 &&
+					      rect.bottom <= (window.innerHeight || document.documentElement.clientHeight) &&
+					      rect.right <= (window.innerWidth || document.documentElement.clientWidth)
+					    );
+					  }
+
+					  // SET STATE OF PREV/NEXT ARROWS
+					  function setBtnState(el, flag = true) {
+					    if (flag) {
+					      el.classList.add(disabledClass);
+					    } else {
+					      if (el.classList.contains(disabledClass)) {
+					        el.classList.remove(disabledClass);
+					      }
+					      el.disabled = false;
+					    }
+					  }
+
+					  // ANIMATE TIMELINE
+					  function animateTl(scrolling, el, tl) {
+					    let counter = 0;
+					    for (let i = 0; i < el.length; i++) {
+					      el[i].addEventListener("click", function() {
+					        if (!arrowPrev.disabled) {
+					          arrowPrev.disabled = true;
+					        }
+					        if (!arrowNext.disabled) {
+					          arrowNext.disabled = true;
+					        }
+					        const sign = (this.classList.contains("arrow__prev")) ? "" : "-";
+					        if (counter === 0) {
+					          tl.style.transform = `translateX(-${scrolling}px)`;
+					        } else {
+					          const tlStyle = getComputedStyle(tl);
+					          // add more browser prefixes if needed here
+					          const tlTransform = tlStyle.getPropertyValue("-webkit-transform") || tlStyle.getPropertyValue("transform");
+					          const values = parseInt(tlTransform.split(",")[4]) + parseInt(`${sign}${scrolling}`);
+					          tl.style.transform = `translateX(${values}px)`;
+					        }
+
+					        setTimeout(() => {
+					          isElementInViewport(firstItem) ? setBtnState(arrowPrev) : setBtnState(arrowPrev, false);
+					          isElementInViewport(lastItem) ? setBtnState(arrowNext) : setBtnState(arrowNext, false);
+					        }, 1100);
+
+					        counter++;
+					      });
+					    }
+					  }
+
+					  // ADD SWIPE SUPPORT FOR TOUCH DEVICES
+					  function setSwipeFn(tl, prev, next) {
+					    const hammer = new Hammer(tl);
+					    hammer.on("swipeleft", () => next.click());
+					    hammer.on("swiperight", () => prev.click());
+					  }
+
+					  // ADD BASIC KEYBOARD FUNCTIONALITY
+					  function setKeyboardFn(prev, next) {
+					    document.addEventListener("keydown", (e) => {
+					      if ((e.which === 37) || (e.which === 39)) {
+					        const timelineOfTop = timeline.offsetTop;
+					        const y = window.pageYOffset;
+					        if (timelineOfTop !== y) {
+					          window.scrollTo(0, timelineOfTop);
+					        }
+					        if (e.which === 37) {
+					          prev.click();
+					        } else if (e.which === 39) {
+					          next.click();
+					        }
+					      }
+					    });
+					  }
+
+					})();
+            </script>
+    </body>
+</html>

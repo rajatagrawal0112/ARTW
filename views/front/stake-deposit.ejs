@@ -1,0 +1,486 @@
+<%- include('header') %>
+
+<section class="for-dashboard-boxes">
+  <div class="container-fluid">
+         <div class="row m-0">
+           <div class=" stretch-card grid-margin">
+            <div class="card rown-dash-card">
+               <a href="painting-list.php">
+                 <div class="card-body">
+                    <div class="left-side-new">
+                         <h4 class="font-weight-normal mb-3">Main Wallet ARTW</h4>
+                        <h2 class=""><%=total_balance%></h2>
+                        <input type="hidden" id="t_balance" value="<%=total_balance%>">
+                        <input type="hidden" id="usdValueRwn" value="<%=usdValue%>">
+                    </div>
+                    <div class="icon-side">
+                        <img src="assets/images/icons/money.png">
+                    </div>
+                  </div>
+               </a>
+            </div>
+          </div>
+          <div class=" stretch-card grid-margin">
+            <div class="card rown-dash-card">
+               <!-- <a href="painting-list.php"> -->
+                 <div class="card-body">
+                    <div class="left-side-new">
+                         <h4 class="font-weight-normal mb-3">Value In USD(Main Wallet)</h4>
+                         <%if(total_usd!="" && total_usd!=null){%>
+                           <h2 class=""><%=total_usd%></h2>
+                           <%}else{%>
+                              <h2 class="">0</h2>
+                              <%}%>
+                        
+                    </div>
+                    <div class="icon-side">
+                       <img src="assets/images/icons/money.png">
+                    </div>
+                  </div>
+               <!-- </a> -->
+            </div>
+          </div>
+           <div class=" stretch-card grid-margin">
+            <div class="card rown-dash-card">
+               <!-- <a href="painting-list.php"> -->
+                 <div class="card-body">
+                    <div class="left-side-new">
+                         <h4 class="font-weight-normal mb-3">Amount Staked in ARTW</h4>
+                         <%if(total_current!="" && total_current!=null){%>
+                          <h2 class=""><%=total_current%></h2>
+                          <%}else{%>
+                             <h2 class="">0</h2>
+                             <%}%>
+                    </div>
+                    <div class="icon-side">
+                       <img src="assets/images/icons/money.png">
+                    </div>
+                  </div>
+               <!-- </a> -->
+            </div>
+          </div>
+          <!-- <div class=" stretch-card grid-margin">
+            <div class="card rown-dash-card">
+             
+                 <div class="card-body">
+                    <div class="left-side-new">
+                         <h4 class="font-weight-normal mb-3">Value In USD</h4>
+                         <%if(total_current_usd!="" && total_current_usd!=null){%>
+                          <h2 class=""><%=total_current_usd%></h2>
+                          <%}else{%>
+                             <h2 class="">0</h2>
+                             <%}%>
+                        
+                    </div>
+                    <div class="icon-side">
+                       <img src="assets/images/icons/money.png">
+                    </div>
+                  </div>
+              
+            </div>
+          </div> -->
+           <div class=" stretch-card grid-margin">
+            <div class="card rown-dash-card">
+               <!-- <a href="painting-list.php"> -->
+                 <div class="card-body">
+                    <div class="left-side-new">
+                         <h4 class="font-weight-normal mb-3">ARTW Withdrawn</h4>
+                         <%if(total_withdrawn!="" && total_withdrawn!=null){%>
+                          <h2 class=""><%=total_withdrawn%></h2>
+                          <%}else{%>
+                             <h2 class="">0</h2>
+                             <%}%>
+                    </div>
+                    <div class="icon-side">
+                        <img src="assets/images/icons/money.png">
+                    </div>
+                  </div>
+               <!-- </a> -->
+            </div>
+          </div>
+         
+          <div class=" stretch-card grid-margin">
+            <div class="card rown-dash-card">
+               <!-- <a href="painting-list.php"> -->
+                 <div class="card-body">
+                    <div class="left-side-new">
+                         <h4 class="font-weight-normal mb-3">Interest Earned in ARTW</h4>
+                         <%if(total_interest!="" && total_interest!=null){%>
+                           <h2 class=""><%=total_interest%></h2>
+                           <%}else{%>
+                              <h2 class="">0</h2>
+                              <%}%>
+                    </div>
+                    <div class="icon-side">
+                       <img src="assets/images/icons/money.png">
+                    </div>
+                  </div>
+               <!-- </a> -->
+            </div>
+          </div>
+            <div class=" stretch-card grid-margin">
+            <div class="card rown-dash-card">
+               <a href="" data-toggle="collapse" data-target="#demo">
+                 <div class="card-body">
+                    <div class="left-side-new">
+                        <h2 class="">Rules</h2>
+                    </div>
+                    <div class="icon-side">
+                       <img src="assets/images/icons/answer.png">
+                    </div>
+                  </div>
+               </a>
+            </div>
+          </div>
+        </div>
+        
+        <div class="row collapse" id="demo">
+           <div class="col-md-12">
+            
+             <div class="card rule-card mb-15">
+                <div class="card-body">
+                    <h3 class="page-title mb-15">Rule</h3>
+                    <ol class="sider-boar-rule">
+                      <li>Staking can be made in ARTW tokens only.</li>
+                     <li>Only Once the holding wallet has 1000 ARTW as interest, it can be withdrawn.</li>
+                      <li><%=interest.interest_rate%>% interest is added to holding wallet per day, in form of ARTW tokens.</li>
+                      <li>Minimum investment of 6000 ARTW (must be available in ARTW wallet).</li>
+                      <li>Minimum duration is 30 days.</li>
+                      <li>Withdraw amount should be equal to or less than 900000 ARTW.</li>
+                      <li>After the fixed staking period you have 3 options. First, Withdraw initially staked ARTW (in part or in full) and/or any ARTW earned (provided the amount earned has reached a minimum of 1000 ARTW). Second, Restake the tokens and interest for a further minimum 30 day period. Third, Do nothing. Tokens and interest will automatically be restaked for a further 30 day period after 7 days. This does not apply if any ARTW are withdrawn from the staked amount, and in that situation any remaining tokens will need to be manually restaked.</li>
+                        
+                    </ol>
+                </div>
+             </div>
+           </div>
+        </div>
+    </div>
+</section>
+
+
+<section >
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+               <div class="card current-balance-row">
+                   <div class="card-body">
+                       <div class="row align-items-center">
+                           <div class="col-md-3">
+                               <h4>Current Balance : </h4>
+                           </div>
+                           <div class="col-md-2">
+                                <div class="balance">
+                                    <span>
+                                      <%if(total_balance!="" && total_balance!=null){%>
+                                        <td><%=total_balance%></td>
+                                        <%}else{%>
+                                           <td>0</td>
+                                           <%}%>
+                                     
+                                    </span>
+                               </div>
+                           </div>
+                           <div class="col-md-2">
+                              <div class="balance">
+                                   USD <span>
+                                    <%if(total_usd!="" && total_usd!=null){%>
+                                      <td><%=total_usd%></td>
+                                      <%}else{%>
+                                         <td>0</td>
+                                         <%}%></span>
+                               </div>
+                           </div>  
+                       </div> 
+                   </div>
+               </div>
+            </div>
+        <!-- </div>
+        <div class="row">
+            <div class="col-lg-6 col-md-6">
+               <div class="card">
+                   <div class="card-body">
+                     <div class="form-body">
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div class="">
+                                    <h4 class="withdraw-heading left-side">Withdraw</h4>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-12 col-lg-5 col-md-12">
+                                <div class="form-group row align-items-center">
+                                    <fieldset class="col-12">
+                                      <div class="input-group">
+                                        <input type="number" class="form-control valid">
+                                        <div class="input-group-append">
+                                          <span class="input-group-text" id="basic-addon4">Rowan</span>
+                                        </div>
+                                      </div>                              
+                                    </fieldset>
+                                </div>
+                            </div>
+                            <div class="col-12 col-lg-2 col-md-12">
+                                <p class="mb-0 text-center font-medium-5">=</p>
+                            </div>
+                            <div class="col-12 col-lg-5 col-md-12">
+                                <div class="form-group row">
+                                    <fieldset class="col-12">
+                                      <div class="input-group">
+                                        <input class="form-control" type="text" readonly="">
+                                        <div class="input-group-append">
+                                          <span class="input-group-text" id="basic-addon4">USD</span>
+                                        </div>
+                                      </div>
+                                    </fieldset>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="text-center mlti-btn">
+                            <button class="btn btn-common light-green">Submit</button>
+                            <button class="btn btn-common light-green">Cancel</button>
+                        </div>
+                    </div>  
+                   </div>
+               </div>
+            </div> -->
+            <div class="col-md-12">
+              <!-- <form > -->
+               <div class="card">
+                   <div class="card-body">
+                     <div class="form-body">
+                      <%if(err_msg!=""){%>
+                        <div class="alert alert-danger"><%=err_msg%></div>
+                      <%} if(success_msg!=""){%>
+                        <div class="alert alert-success"><%=success_msg%></div>
+                      <%}%>
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div class="">
+                                    <h4 class="withdraw-heading left-side">Deposit</h4>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="row">
+                            <div class="col-12 col-lg-5 col-md-12">
+                                <div class="form-group row align-items-center">
+                                    <fieldset class="col-12">
+                                      <div class="input-group">
+                                        
+                                        
+                                        <input type="number" id="deposit" step="any" min="0"  name=""  value=""   oninput="check(this)" class="form-control valid">
+                                        <!-- <input type="number" id="Deposit"  name="startingbalance" class="form-control valid"> -->
+                                        <span class="input-group-text" id="basic-addon4">ARTW</span>
+                                        <div class="input-group-append">
+                                          <span id="errorMsg" style="color: red;"></span>
+                                          
+                                        </div>
+                                      </div>                              
+                                    </fieldset>
+                                </div>
+                            </div>
+                            <div class="col-12 col-lg-2 col-md-12">
+                                <p class="mb-0 text-center font-medium-5">=</p>
+                            </div>
+                            <div class="col-12 col-lg-5 col-md-12">
+                                <div class="form-group row">
+                                    <fieldset class="col-12">
+                                      <div class="input-group">
+                                        <input class="form-control" type="text" id="valueinUSD"  name="valueinUSD" readonly="">
+                                        
+                                        <div class="input-group-append">
+                                          <span class="input-group-text" id="basic-addon4">USD</span>
+                                        </div>
+                                      </div>
+                                    </fieldset>
+                                </div>
+                            </div>
+                        </div>
+
+
+                        <label for="enddate">end date:</label>
+
+
+                            <input type="date" id="txtDate" name="" />
+                            <div class="input-group-append">
+                              <span id="dateerrorMsg" style="color: red;"></span>
+                              
+                            </div>
+
+                        <div class="text-center mlti-btn">
+                            <button class="btn btn-common light-green" data-toggle="modal" id="depo_btn" type="button" onclick="deposit_rwn()">Submit</button>
+
+
+                           
+                             
+                            
+                            <button class="btn btn-common light-green">Cancel</button>
+                        </div>
+                    </div>  
+                   </div>
+               </div>
+              <!-- </form> -->
+            </div>
+        </div>
+    </div>
+      
+  
+</section>
+
+
+<!-- Modal -->
+<div class="modal fade modal-key" id="keyModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      
+      <div class="modal-body">
+        <div class="row">
+          <div class="col-md-12">
+            <form id="validate_form" method="post" action="/submit-stake-deposit">
+            <h3 class="green-heading text-center">Enter Your Passphrase</h3>
+             <p class="text-upper text-center">Please enter your Passphrase stored with you.</p> 
+            <div class="form-group">
+              <input type="text" name="enter_passphrase" class="form-control" id="enter_passphrase" data-rule-required="true"  data-msg-required="Please enter Passphrase." autocomplete="off" >
+            </div>
+
+          <input type="hidden" name="sender_address" id="sender_address" value="<%=wallet_address%>">
+
+          <input type="hidden" name="user_cr_pass" id="user_cr_pass" value="<%=passphrase%>">
+
+          <input type="hidden" name="startingbalance" id="amount_send" value="">
+
+          <input type="hidden" name="endate" id="endate" value=""> 
+
+          <input type="hidden" name="get_wallet_id" id="get_wallet_id" value="<%=wallet_id%>">
+          
+            <div class="text-center mt-4">
+              <input type="submit" name="submit1" value="Submit" id="sub_btn" class="btn btn-common light-green">
+              <!-- <a href="send-history.php" class="btn btn-common light-green">Submit</a> -->
+            </div>
+            </form>
+          </div>
+        </div>
+      </div>
+     
+    </div>
+  </div>
+</div>
+
+
+<%- include('footer') %>
+
+
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+<script src="/admin_assets/js/jquery.validate.min.js"></script>
+<script type="text/javascript">
+  $('#validate_form').validate({
+        onfocusout: function(element) {
+        this.element(element);
+        },
+        errorClass: 'error_validate',
+        errorElement:'span',
+        highlight: function(element, errorClass) {
+        $(element).removeClass(errorClass);
+        },
+        submitHandler:function(form)
+           {   $('#errorMsg').html("");
+              $('#sub_btn').attr('disabled',true);
+              form.submit();       
+           }
+        });
+</script>
+<script>
+$(function(){
+    var dtToday = new Date();
+    
+    var month = dtToday.getMonth() + 1;
+    var day = dtToday.getDate();
+    var year = dtToday.getFullYear();
+    if(month < 10)
+        month = '0' + month.toString();
+    if(day < 10)
+        day = '0' + day.toString();
+    
+    var minDate= year + '-' + month + '-' + day;
+    
+    var d = new Date();
+    console.log(d.toLocaleDateString());
+    d.setMonth(d.getMonth() + 1);
+    console.log(d.toString('yyyy-MM-dd'));
+    var date    = new Date(d),
+    yr      = date.getFullYear(),
+    month   = date.getMonth() < 10 ? '0' + (date.getMonth()+parseInt(1)) : (date.getMonth()+parseInt(1)),
+    day     = date.getDate()  < 10 ? '0' + date.getDate()  : date.getDate(),
+    newDate = yr + '-' + month + '-' + day;
+    $('#txtDate').attr('min', newDate);
+    $('#txtDate').val(newDate);
+});
+</script>
+
+
+<script>
+  function check(input) {
+    var balance = $('#t_balance').val();
+    var usdValue = $('#usdValueRwn').val();
+     $('#errorMsg').html("");
+     $('#valueinUSD').val("");
+    
+    if (input.value > 0) {
+      if(input.value>parseFloat(balance)){
+      $('#errorMsg').html("");
+      $('#valueinUSD').val("");
+      $('#errorMsg').html('The amount deposited must be less than your ARTW balance.');
+     }else{
+       if(input.value < 6000){
+        $('#errorMsg').html("");
+        $('#valueinUSD').val("");
+        $('#errorMsg').html('The amount deposited must be atleast 6000 ARTW.');
+       }else{
+        var total_val = parseFloat(input.value)*parseFloat(usdValue);
+        $('#errorMsg').html("");
+        $('#valueinUSD').val(total_val);
+       }
+       
+     }
+    
+    } else {
+      $('#errorMsg').html("");
+     $('#valueinUSD').val("");
+    $('#errorMsg').html('The amount deposited must be greater than zero.');
+      
+    }
+  }
+ 
+ function deposit_rwn(){
+  var deposit = $('#deposit').val();
+  var endate = $('#txtDate').val();
+  if(deposit!=""){
+    
+    if(endate){
+      // alert(endate);
+      $('#errorMsg').html("");
+      $('#dateerrorMsg').html("");
+
+      $('#amount_send').val(deposit);
+      $('#endate').val(endate);
+
+      $('#depo_btn').attr('data-target','#keyModal');
+      $('#keyModal').modal("show");
+    }else{
+      // alert(endate+"empty");
+      $('#errorMsg').html("");
+      $('#dateerrorMsg').html("");
+      $('#dateerrorMsg').html("Please select end date.");
+    }
+  }else{
+    // alert(deposit);
+    $('#errorMsg').html("");
+    $('#dateerrorMsg').html("");
+    $('#errorMsg').html("Please enter deposit amount.");
+  }
+ } 
+
+</script>  
+

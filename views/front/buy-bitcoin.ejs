@@ -1,0 +1,386 @@
+<%- include('header') %>
+<style>
+       .error_validate {color: red;}
+       .title{padding: 0 50px 20px;}
+       .modal-body.terms-block p{
+        font-size: 16px;}
+    </style>
+
+ <div class="app-content content">
+    <div class="content-wrapper token for-token-page">
+      
+         <h2 class="hbg card-title">Buy with Bitcoin</h2> 
+         <%if(error != '') {%>
+                   <span class="success-msg"  style="color: red; "><%= error%><span>
+                    <% }if(success != ''){ %>
+                   <span class="success-msg"  style="color: #099441; " id="btc_success"><%=success%></span>
+                    <% } %>
+
+<div class="card-content for-equal-only">
+        <div class=" buy-upper card pull-up buy-token">
+            <div class="card-content collapse show">
+                <div class="card-body">
+                    <div class="row d-flex align-items-center" action="https://pixinvent.com/demo/crypto-ico-admin/html/ltr/vertical-menu/buy-ico.html">
+                        <div class="col-lg-2 col-md-3 col-12">
+                        <img src="assets/images/other/Bitcoin128.png" alt="Bitcoin Icon">
+                        </div>
+                        <div class="col-lg-4 col-md-5 col-12">
+                            <h6>Bitcoin</h6>
+
+                            <p> <input type="text" id="copy_add" class="form-control" readonly="" id="copy_add" placeholder="BTC wallet address" value="3E78F29FWTt7X8axRUsuco1aGcbp44QB5w" ></p>
+                            <button type="submit" onclick="myFunction()" class="btn btn-common light-green">Copy</button>
+                        </div>
+                       <div class="col-lg-6 col-md-4 col-12">
+                           <div class="bar-code">
+                               <img src="assets/images/icons/btc_qrcode.png" alt="QR Code Image">
+                           </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+         <div class="col-lg-7 col-md-12">
+                  <form method="POST" action="/BTC" id="buy_bitcoin">
+               
+                    <div class="form-body">
+                      <div class="row">
+                          <div class="col-12 col-lg-5 col-md-12">
+                              <div class="form-group row">
+                                  <label class="col-2 label-control" for="projectinput1">BUY<span style="color:red;">*</span></label>
+                                  <fieldset class="col-10">
+                                    <div class="input-group">
+                                      <input type="text" class="form-control" data-rule-number="true" onkeyup="multiply()"  name="rowan" id="rowan" data-rule-min="1" data-msg-min="You have to buy minimum 1 ARTW." data-rule-required="true" data-msg-required="Please enter value in digit." aria-describedby="basic-addon4" >
+                                      <div class="input-group-append">
+                                        <span class="input-group-text" id="basic-addon4">ARTW</span>
+                                      </div>
+                                    </div>
+                          
+                                  </fieldset>
+                                  <span for="rowan" class="error_validate" id="rowan_err"></span>
+                              </div>
+                          </div>
+                          <div class="col-12 col-lg-2 col-md-12">
+                              <fieldset class="col-12">
+                                <p class="mb-0 text-center font-medium-5">=</p>
+                              </fieldset>
+                          </div>
+                          <div class="col-12 col-lg-5 col-md-12">
+                              <div class="form-group row">
+                                  <fieldset class="col-12">
+                                    <div class="input-group">
+                                      <input class="form-control" id="btc"  aria-describedby="basic-addon4" readonly="" name="btc" type="text">
+                                      <div class="input-group-append">
+                                        <span class="input-group-text" id="basic-addon4">BTC</span>
+                                      </div>
+                                    </div>
+                                  </fieldset>
+                              </div>
+                          </div>
+                      </div>
+                  </div>
+                 <input type="hidden" value="<%=rwn%>" name="rate_per_rowan" id="rate_per_rowan" >
+                 <input type="hidden" value="<%=user_id%>" name="user_id">
+              <p class="font-italic value-coin-line mx-1 mb-2"> 1 ARTW = <%=rwn%> BTC</p>
+                 <div class="col-md-12">
+                    <div id="tran_wallet">
+                    <!-- <?php if(empty($count_for_refrrel->total)) { ?>
+                    <div class="form-group">
+                      <div class="row">
+                          <label class="control-label col-sm-5">Referral Code</label>
+                      <div class="col-sm-7">
+                        <input type="text" class="form-control" id="referral_code" name="referral_code" >
+                      </div>
+                      </div>
+                    </div>
+                  <?php } ?> -->
+                    <div class="form-group">
+                      <div class="row">
+                          <label class="control-label col-sm-5">Sender's Bitcoin Wallet Address<span style="color:red;">*</span></label>
+                      <div class="col-sm-7">
+                        <input type="text" class="form-control secure" id="bit_wallet_address" name="bit_wallet_address" data-rule-required="true" data-msg-required="Please enter Wallet Address." >
+                      </div>
+                      </div>
+                    </div>
+                     <div class="form-group">
+                       <input type="hidden" name="wallet_address" value="<%=wallet_address%>">
+                      <div class="row">
+                          <label class="control-label col-sm-5">ARTW Wallet Address<span style="color:red;">*</span></label>
+                      <div class="col-sm-7">
+                        <input type="text" class="form-control secure" value="<%=wallet_address%>" id="eth_wallet_address" name="eth_wallet_address" data-rule-required="true" data-msg-required="Please enter Ethereum Wallet Address." readonly="" >
+                      </div>
+                      </div>
+                    </div>
+                    <div class="form-group">
+                      <div class="row">
+                          <label class="control-label col-sm-5">Reference/Transaction ID<span style="color:red;">*</span></label>
+                      <div class="col-sm-7">
+                        <input type="text" class="form-control secure" id="transaction_id" name="transaction_id" data-rule-required="true" data-msg-required="Please enter Transaction Id.">
+                      </div>
+                      </div>
+                    </div>
+
+                       <!-- <div class="form-group" >
+                     <div class="row">
+                          <div class="col-sm-offset-2 col-sm-10">
+                        <div class="checkbox">
+                          <label><input type="checkbox"  id="screen">&nbsp; If did not remember and you have a screen shot of transaction id and wallet address then click here.</label>
+                        </div>
+                      </div>
+
+                     </div>
+                    </div> -->
+                  </div>
+                    <!-- <div class="form-group" id="image_bolck" style="display:none;">
+
+                      <div class="form-group">
+                     <div class="row">
+                          <div class="col-sm-offset-2 col-sm-10">
+                        <div class="checkbox">
+                          <label><input type="checkbox" checked="checked" id="trn_wallte_anchor">&nbsp; If did not have a screen shot of transaction id and wallet address than click here and fill it</label>
+                        </div>
+                      </div>
+                  
+                     </div>
+                    </div>
+                      <div class="row">
+                          <label class="control-label file-label col-sm-7" for="email">Upload Transaction Screenshot <span style="color:red;">*</span></label>
+                      <div class="col-sm-3" >
+                       <div class="fileUpload btn-gradient-secondary">
+                              <span>Upload</span>
+                              <input type="file" accept=".png,.jpeg,.jpg,"   class="upload" id="image" name="image" data-rule-required="true" data-msg-required="Please upload your Document." />
+                          </div>
+                          <span for="image" class="error_validate" id="image_val_err"></span>
+                       </div>
+                         
+                      </div>
+                    </div> -->
+                         <div class="checkbox">
+                      <label><input type="checkbox" name="check" data-rule-required="true"  data-msg-required="Please agree with Terms & Conditions." > I agree with <a href="#" class="condition-block" data-toggle="modal" data-target="#termsModal">Terms and Conditions</a></label>
+                  
+                    </div>
+                          <span for="check" class="error_validate" style=" display: block;"></span>
+                    <!-- <div class="g-recaptcha" data-sitekey="6Ldyv58UAAAAAHCD3urH-ujXxm4dGefpmE4pZIrb"></div> -->
+                         <!-- <%
+                  if ("cap_error"!= '') {
+                  %>
+                  <span style="color:red;"><%= "cap_error" %></span>
+                  <% }%> -->
+                  
+                    <div class="form-group">
+                      <div class="row">
+                          <div class="col-sm-12">
+                        <div class="btn-block">
+                            <button type="submit" class="btn btn-common light-green">Submit</button>
+                        </div>
+                      </div>
+                      </div>
+                    </div>
+                
+                 
+                   </div>
+                  </form>
+            </div>
+            <div class="col-lg-5 col-md-12 col-12">
+                <div class="card steps-card text-center">
+                        <div class="card-content collapse show">
+                            <div class="card-body">
+                                <div class="font-small-3 token-balance clearfix">
+                                     <h6 class="hbg my-2 text-left">5 step guide</h6>
+                                     <ol class="text-left four-step-list">
+                                        <li>Calculate how much tokens you want to buy.</li>
+                                        <li>Copy/Scan the displayed address</li>
+                                        <li>Send your BTC to that address. You may send it right from your exchange.</li>
+                                        <li>Upon transaction confirmation, please fill in your transaction details (Bitcoin Wallet address, Ethereum Wallet address and transaction ID) in the form. We need Ethereum wallet address so that we can transfer ARTW coins to you.</li>
+                                        <li>Our team will verify the transaction and will send your ARTW tokens within 48 hours which will be reflected in your wallet.</li>
+                                    </ol>
+                                    
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+        </div>
+                
+
+    </div>
+    </div>
+</div>
+
+<!-- Modal -->
+<div class="modal fade terms-modal" id="termsModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">Terms and Conditions</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body terms-block">
+          <p>This ARTW Whitepaper is strictly for information purposes only, and we do not guarantee
+the correctness of or the conclusions provided in this whitepaper. The whitepaper is presented
+on an “as is” basis.</p>
+<p>We do not make and expressly disclaim all representations and warranties, whether express,
+implied, statutory or otherwise, of any form, including, but with no limitation to warranties of
+usage, merchantability, suitability, fitness for a specific purpose, title or non-infringement. We
+offer no guarantee that the contents of this whitepaper are free from error.</p>
+<p>ARTW and its affiliates shall not be held liable for damages of any kind resulting from the
+use, reference to, or dependence on this whitepaper, or any of the content contained in it, even if
+advised of the likelihood of such damages.</p>
+<p>Under no circumstance will ARTW or its affiliates be made liable to any individual or entity
+for any losses, damages, expenses, costs, or liabilities, whatsoever, whether direct or indirect,
+compensatory, consequential, actual, incidental, punitive, special, or exemplary, for the use of,
+reference to, or reliance on this whitepaper or any of the content contained in it, including, with
+no limitation to, any loss of business, profits, revenues, use, data, goodwill or other intangible
+losses.</p> 
+      </div>
+  </div>   
+</div> 
+</div>
+<%- include('footer') %>
+<script src="/assets/js/jquery-2.1.0.js"></script>
+
+<!-- <script type="text/javascript"src="/assets/js/jquery.validate.min.js"></script> -->
+
+<script src='https://www.google.com/recaptcha/api.js' async defer></script>
+        <script src="https://www.google.com/recaptcha/api.js?render=6Ldyv58UAAAAAHCD3urH-ujXxm4dGefpmE4pZIrb"></script>
+ 
+ <script type="text/javascript">
+  $('#referral_code').blur(function(){
+    var referral_code= $('#referral_code').val();
+    if(referral_code != "")
+    {
+        $.ajax({
+        url: '<?php echo base_url();?>Front/check_referral_code',
+        data: { 'referral_code' : referral_code },
+        type: "post",
+        success: function (res) {
+         // alert(res);
+        if(res ==0 )
+        {
+        alert("Please enter valid Referral code.");
+        setTimeout(function() { $('#referral_code').val(''); }, 100);
+        return false;
+        }
+       
+        }
+
+        });
+    }
+     
+
+  });
+</script>
+<script src="/assets/js/jquery.validate.min.js"></script>
+ <script type="text/javascript">
+
+     $('#buy_bitcoin').validate({
+          onfocusout: function(element) {
+                this.element(element);
+                 $('#bt_sub_btn').show();
+            },
+            errorClass: 'error_validate',
+            errorElement:'span',
+            highlight: function(element, errorClass) {
+               $(element).removeClass(errorClass);
+                $('#bt_sub_btn').show();
+            }
+    });
+  
+  $('#bt_sub_btn').click(function(){
+    $('#bt_sub_btn').hide();
+  });
+
+  $('#image').change(function(){
+    check_image=$('#image').val();
+    if(check_image !="")
+    {
+      var ext = $('#image').val().split('.').pop().toLowerCase();
+        if($.inArray(ext, ['gif','png','jpg','jpeg']) == -1) {
+          $('#image_val_err').css({'color':'red'});
+          $('#image_val_err').html("");
+          $('#image_val_err').html("Please selet image file only.");
+          $('#image').val("");
+        }else{
+          $('#image_val_err').css({'color':'green'});
+          $('#image_val_err').html(check_image);
+        }
+      
+      
+
+    }
+  });
+  </script>
+
+   <script type="text/javascript">
+
+     function multiply(){
+         var rowan=$('#rowan').val();
+         var rate = $('#rate_per_rowan').val();
+         // alert(rowan);
+
+          if(rowan!="" )  
+         {
+          var btc_round= parseFloat(rowan)*rate ;
+          // alert(btc_round);
+          var btc=btc_round.toFixed(7);
+          $('#btc').val(btc);
+         }
+        
+     };
+
+  </script>
+
+  <script type="text/javascript">
+ $(document).ready(function () {
+
+  $('#screen').click(function(){
+    $('#tran_wallet').hide();
+    $('#image_bolck').show();
+    //$('#transaction_id').val("");
+    //$('#bit_wallet_address').val("");
+
+  });
+ 
+ $('#trn_wallte_anchor').click(function(){
+    $('#tran_wallet').show();
+    $('#image_bolck').hide();
+    $("#screen").prop("checked", false);
+    
+     //$('#image').val("");
+
+ });
+
+});
+
+  </script>
+  <script>
+function myFunction() {
+  var copyText = document.getElementById("copy_add");
+  copyText.select();
+  document.execCommand("copy");
+  alert("Address is copied");
+}
+</script>
+
+<script type="text/javascript">
+  var btc_success=$('#btc_success').html();
+ 
+  if(btc_success!="" && btc_success!=undefined)
+  {
+     setTimeout(function(){ $('#btc_success').html('');},3000);
+  }
+
+  </script>
+  <script>
+   jQuery('.secure').focusout(function(e){
+            var message = jQuery('.secure').val();
+            if(/<(br|basefont|hr|input|source|frame|param|area|meta|!--|col|link|option|base|img|wbr|!DOCTYPE|a|abbr|acronym|address|applet|article|aside|audio|b|bdi|bdo|big|blockquote|body|button|canvas|caption|center|cite|code|colgroup|command|datalist|dd|del|details|dfn|dialog|dir|div|dl|dt|em|embed|fieldset|figcaption|figure|font|footer|form|frameset|head|header|hgroup|h1|h2|h3|h4|h5|h6|html|i|iframe|ins|kbd|keygen|label|legend|li|map|mark|menu|meter|nav|noframes|noscript|object|ol|optgroup|output|p|pre|progress|q|rp|rt|ruby|s|samp|script|section|select|small|span|strike|strong|style|sub|summary|sup|table|tbody|td|textarea|tfoot|th|thead|time|title|tr|track|tt|u|ul|var|video).*?>|<(video).*?<\/\2>/i.test(message) == true) {
+                alert('Tag are not allowed Please enter valid details');
+                location.reload();
+                // $('.secure').val("");
+                e.preventDefault();
+            }
+        });
+    </script>

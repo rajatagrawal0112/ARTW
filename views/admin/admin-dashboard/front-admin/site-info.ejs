@@ -1,0 +1,157 @@
+<%- include('layout/header'); -%>
+    <div class="heading-row mb-20">
+    <div class="row align-item-center">
+       <div class="col-lg-6">
+          <h3 class="page-title"><span class="page-title-icon bg-gradient-primary text-white mr-2"><i class="mdi mdi-home"></i></span> Get In Touch Info </h3>
+       </div>
+        <div class="col-lg-6">
+         <div class="text-right">
+           <div>
+             <a href="/main-dashboard" class="btn btn-common bg-gradient-primary">Go Back</a>
+           </div>
+         </div>
+       </div>
+  </div>
+  </div>
+ 
+    <div class="row">
+        
+      <div class="col-md-12">
+        <div class="card">
+           <div class="card-body">
+             <% if(success_msg!=undefined && success_msg !='' ){ %>
+                                <div class="alert alert-success text-center  flash_msg ">
+                                    <%= success_msg %>
+                                </div>
+                         <% }%>
+                          <% if(err_msg!=undefined && err_msg!=''){ %>
+                                <div class="alert alert-danger text-center  succ_flash_msg">
+                                    <%= err_msg %>
+                                </div>
+                         <% }%>
+
+             <div class="row">
+               <div class="col-md-12">
+                <form action="/update_siteinfo" method="POST" id="add-document"  class="forms-sample">
+      
+                 <div>
+                   <div class="profile-form mt-20">
+                      <div class="row">
+                        <div class="col-md-8">
+                            <div class="row">
+                              <div class="col-md-12">
+                                 <div class="form-group">
+                                    <label>Title</label>
+                                   <input type="text" name="title" class="form-control" id="" placeholder="Title" data-rule-required="true" data-msg-required="Please enter title." value="<%= Data.title%>">
+                                  </div>
+                                  <input type="hidden" name="id" value="<%= Data._id%>">
+                              </div>
+                              <div class="col-md-12">
+                                 <div class="form-group">
+                                    <label>Address</label>
+                                   <input type="text" name="address" class="form-control" id="" placeholder="Address" data-rule-required="true" data-msg-required="Please enter address." value="<%= Data.address%>">
+                                  </div>
+                              </div>
+                              <div class="col-md-12">
+                                 <div class="form-group">
+                                    <label>Support Email</label>
+                                   <input type="email" name="email" class="form-control" id="" placeholder="Email" data-rule-required="true" data-msg-required="Please enter email." value="<%= Data.email%>">
+                                  </div>
+                              </div>
+                              <div class="col-md-12">
+                                 <div class="form-group">
+                                    <label>Phone Number</label>
+                                    <input type="text" name="phone" class="form-control" id="" placeholder="Phone" data-rule-required="true" data-msg-required="Please enter phone no." value="<%= Data.phone%>">
+                                  </div>
+                              </div>
+                              <div class="col-md-12">
+                                <div class="form-group">
+                                   <label>YouTube URL</label>
+                                   <input type="text" name="youtube" class="form-control" id="" placeholder="YouTube URL"  value="<%= Data.youtube%>">
+                                 </div>
+                             </div>
+                             <div class="col-md-12">
+                              <div class="form-group">
+                                 <label>Twitter URL</label>
+                                 <input type="text" name="twitter" class="form-control" id="" placeholder="Twitter URL"  value="<%= Data.twitter%>">
+                               </div>
+                           </div>
+                             <div class="col-md-12">
+                              <div class="form-group">
+                                 <label>Facebook URL</label>
+                                 <input type="text" name="facebook" class="form-control" id="" placeholder="Facebook URL"  value="<%= Data.facebook%>">
+                               </div>
+                           </div>
+                         <div class="col-md-12">
+                          <div class="form-group">
+                             <label>Instagram URL</label>
+                             <input type="text" name="instagram" class="form-control" id="" placeholder="Instagram URL" value="<%= Data.instagram%>">
+                           </div>
+                       </div>
+                            </div>  
+                        </div>
+                      </div>
+                      <div class="popup-btn">
+                         <button type="submit" class="btn btn-common bg-gradient-primary">Update</button>
+                        <a href="upload-doc-list" class="btn btn-common bg-gradient-primary">Cancel</a>
+                      </div>
+                   </div>
+                 </div>
+                  </form>
+               </div>
+             </div>
+           </div>
+        </div>
+      </div>
+   
+    </div>
+
+           
+<%- include('layout/footer'); -%>
+<script src="https://cdn.ckeditor.com/4.13.1/standard/ckeditor.js"></script>
+ <script>
+        CKEDITOR.replace( 'editor1' );
+</script>
+
+
+  <script type="text/javascript" > 
+function readURL(input) {
+if (input.files && input.files[0]) {
+var reader = new FileReader();
+reader.onload = function (e) {
+$('#user_profile_image_preview')
+.attr('src', e.target.result)
+.width(200)
+.height(150);
+};
+
+reader.readAsDataURL(input.files[0]);
+}
+var src = $('#imgInp6').val(); // "static/images/banner/blue.jpg"
+var tarr = src.split('/');      // ["static","images","banner","blue.jpg"]
+var file = tarr[tarr.length-1]; // "blue.jpg"
+var data = file.split('.')[0];  // "blue"
+
+//alert(data);
+$('#text_img_name').val(src);
+}
+
+</script>
+
+<script src="admin_assets/js/jquery.validate.min.js"></script>
+  <script type="text/javascript">
+
+               $(document).ready(function (){
+               $('#Aboutu').validate({
+                     onfocusout: function(element) {
+                           this.element(element);
+                     },
+                     errorClass: 'error_validate',
+                     errorElement:'span',
+                     highlight: function(element, errorClass) {
+                      $(element).removeClass(errorClass);
+                     }
+                   });
+
+               });
+</script>

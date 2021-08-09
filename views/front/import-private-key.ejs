@@ -1,0 +1,71 @@
+<%- include('header') %>
+
+<section class="dash-inner-sec">
+    <div class="container">
+        <div class="row">
+             <div class="col-lg-10 offset-lg-1 col-md-12">
+                <form id="submit_passphrase_key" action="/submit-import" method="post">
+                 <div class="dashboard-box">
+                     
+                     <div class="create-wallet-block">
+                           <h3 class="main-heading wow slideInLeft">ARTW Coin</h3> 
+                           <h4 class="green-heading wow slideInRight">Import Your Passphrase</h4>
+                           <p class="head-commn-text wow slideInUp">Please enter your Passphrase below to conﬁrm your wallet account.</p>
+                           
+                          <div class="form-group enter-private-key input-dash wow slideInLeft">
+                             <!-- <input class="form-control" type="text" name="Passphrase" id="Passphrase"> -->
+                             <input class="form-control" type="text" placeholder="Enter your Passphrase" name="Passphrase" id="Passphrase" data-rule-required="true"  data-msg-required="Please enter Passphrase" autocomplete="off">
+                          </div>
+
+                          <div class="clearfix note-line wow slideInRight">
+                            <span class="float-left">Whoops, I didn't write my private key.</span>
+                            <span class="float-right"><a href="/Create-wallet">Create a new wallet</a></span>
+                          </div>
+
+                          <div class="text-center">
+                               <!-- <a href="wallet-success.php" class="btn btn-common light-green">Continue</a> -->
+                               <button class="btn btn-common light-green" id="submit_key" type="submit">Continue</button>
+                            </div>
+                        </div>
+                    
+                 </div>
+                </form>
+             </div>
+        </div>
+    </div>
+</section>
+
+
+<%- include('footer') %>
+
+<script src="/assets/js/jquery.validate.min.js"></script>
+<script type="text/javascript">
+$('#submit_passphrase_key').validate({
+      onfocusout: function(element) {
+      this.element(element);
+      },
+      errorClass: 'error_validate',
+      errorElement:'span',
+      highlight: function(element, errorClass) {
+      $(element).removeClass(errorClass);
+      },
+      submitHandler:function(form)
+      {       
+      $('#submit_key').attr('disabled',true);
+      form.submit();
+      }
+});
+</script> 
+<script type="text/javascript">
+$(document).ready(function () {
+var flash_msg=$('.flash_msg1').html();
+if(flash_msg!="" && flash_msg!=undefined)
+{
+  setTimeout(function(){ $('.flash_msg1').html('');},1000000);
+}    
+});
+
+ $("#Passphrase").focusin(function(){
+  $(".flash_msg1").html("");
+});
+</script>

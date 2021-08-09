@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>The ArtW</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="viewport"
+    content="width=device-width, initial-scale=1.0, user-scalable=1.0, minimum-scale=1.0, maximum-scale=1.0">
+  <!-- Favicon -->
+  <link rel="icon" type="image/png" href="assets/images/favicon.png">
+  <!-- Bootstrap Core CSS -->
+  <link href="assets/css/bootstrap.min.css" rel="stylesheet" />
+  <link href="assets/css/bootstrap-dropdownhover.min.css" rel="stylesheet" />
+  <!-- slick CSS -->
+  <link href="assets/css/slick.css" rel="stylesheet" />
+  <link href="assets/css/slick-theme.css" rel="stylesheet" />
+  <!-- Animate CSS -->
+  <link href="assets/css/animate.css" rel="stylesheet" />
+  <!-- hover-min CSS -->
+  <link href="assets/css/hover-min.css" rel="stylesheet" />
+  <!-- yamm css -->
+  <link href="assets/css/yamm.css" rel="stylesheet" />
+  <!-- Font-awesome web fonts with css -->
+  <link href="assets/css/fontawesome-all.css" rel="stylesheet" type="text/css" />
+  <!-- Font-awesome web fonts with css -->
+  <!-- loader css -->
+  <link href="assets/css/loader.css" rel="stylesheet" />
+  <!-- Custom CSS -->
+  <!--  <link href="assets/css/custom-home-new.css" rel="stylesheet"/> -->
+  <link href="assets/css/custom-llc.css" rel="stylesheet" />
+
+
+  <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;500;600;700&display=swap"
+    rel="stylesheet">
+
+  <link rel="stylesheet" href="assets/css/jquery-ui.css">
+
+  <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+  <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+  <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+  <style>
+    .error_validate {
+      color: red;
+    }
+  </style>
+</head>
+
+<body class="index-body">
+
+
+
+  <section class="login-sec">
+    <div class="logo-box">
+      <a href="/"><img src="assets/images/the-art-logo.png" class="color-logo" alt="The Art W Logo"></a>
+    </div>
+    <div class="container">
+      <div class="row">
+        <div class="col-md-5">
+          <div class="login-form-box">
+            <h2>Signup</h2>
+            <% if(err_msg!=undefined){ %>
+              <span class="error_validate flash_msg" style="color:red">
+                <%= err_msg %>
+              </span>
+              <% }%>
+                <form method="post" action="/submit_registration" id="registration">
+                  <div class="row">
+                    <div class="col-md-6">
+                      <div class="form-group">
+                        <!-- <label>First Name</label> -->
+                        <input type="text" class="form-control" placeholder="Enter  Name" name="name"
+                          data-rule-required="true" data-rule-maxlength="24" data-msg-required="Please enter  name.">
+                      </div>
+                    </div>
+
+                    <div class="col-md-6">
+                      <div class="form-group">
+                        <input type="text" class="form-control" placeholder="Enter Email" name="email" id="email"
+                          data-rule-required="true" data-rule-email="true"
+                          data-msg-required="Please enter email address."
+                          data-msg-email="Please enter a valid email address.">
+                      </div>
+                    </div>
+
+                  </div>
+
+
+                  <div class="row">
+                    <div class="col-md-6">
+                      <div class="form-group">
+                        <!-- <label>First Name</label> -->
+                        <input type="text" class="form-control" placeholder="Enter Mobile No" name="mob"
+                          data-rule-maxlength="10">
+                      </div>
+                    </div>
+
+                    <div class="col-md-6">
+                      <div class="form-group">
+                        <input type="text" name="ref_link" value="<%=ref_link %>" class="form-control"
+                          placeholder="Enter Referral Code">
+                      </div>
+                    </div>
+
+                  </div>
+
+                  <div class="row">
+                    <div class="col-md-6">
+                      <div class="form-group">
+                        <input type="password" class="form-control" placeholder="Password" id="password" name="password"
+                          type="password" data-rule-minlength="5" data-rule-maxlength="75" data-rule-required="true"
+                          data-msg-required="Please enter password.">
+                      </div>
+                    </div>
+                    <div class="col-md-6">
+                      <div class="form-group">
+                        <input type="password" class="form-control" placeholder="Confirm Password"
+                          data-rule-equalto="#password" name="conf_pass" type="password" data-rule-required="true"
+                          data-msg-equalto="Password and Confirm Password should get match."
+                          data-msg-required="Please enter confirm password.">
+                      </div>
+                    </div>
+                  </div>
+
+                  <!-- <div class="form-group">
+                      <div class="g-recaptcha" data-sitekey="6LcQx_AaAAAAAOfBhejX0OhAZKvvAZNRsfQbPLu1"></div>
+                      </div>
+                       <div class="form-group"> -->
+                  <label>
+                    <input type="checkbox" name="check" data-rule-required="true"
+                      data-msg-required="Please accept terms and condition.">
+                    I have read and agree to the <a href="/terms-conditions" target="_blank">terms and conditions.</a>
+                  </label>
+                  <br>
+                  <span for="check" class="error_validate"></span>
+          </div>
+
+          <div>
+            <!-- <a class="purple-btn-index" href="/login">Login</a> -->
+            <button type="submit" class="purple-btn-index" id="submit_signup">Sign Up</button>
+          </div>
+          <div>
+            <p>Already have an acount? <a href="/login"> Login</a></p>
+          </div>
+          </form>
+
+        </div>
+      </div>
+      <div class="col-md-4 ml-auto">
+        <div class="banner-inner-text text-center">
+          <h2>Sale Start In:</h2>
+          <p>Signup NOW to receive free ARTW tokens</p>
+          <div>
+            <div class="ico-counter">
+              <div class="timer">
+                <div id="daysTicker" class="countdown"></div>
+                <div class="counter-text">DAYS</div>
+              </div>
+              <div class="timer">
+                <div id="hoursTicker" class="countdown"></div>
+                <div class="counter-text">HOURS</div>
+              </div>
+              <div class="timer">
+                <div id="minsTicker" class="countdown"></div>
+                <div class="counter-text">MINUTES</div>
+              </div>
+              <div class="timer">
+                <div id="secsTicker" class="countdown last"></div>
+                <div class="counter-text">SECONDS</div>
+              </div>
+            </div>
+          </div>
+          <div class="banner-btn">
+            <a href="/signup" class="purple-btn-index">Buy ARTW</a>
+
+          </div>
+        </div>
+      </div>
+    </div>
+    </div>
+  </section>
+
+
+
+
+  <!-- JQuery -->
+  <script type="text/javascript" src="assets/js/jquery-3.3.1.min.js"></script>
+  <!-- <script type="text/javascript" src="assets/js/jquery-1.11.3.min.js"></script> -->
+  <!-- Bootstrap Core JavaScript -->
+  <script type="text/javascript" src="assets/js/bootstrap.min.js"></script>
+  <!-- dropdownhover effects JavaScript -->
+  <script type="text/javascript" src="assets/js/bootstrap-dropdownhover.min.js"></script>
+  <!-- wow JavaScript -->
+  <script type="text/javascript" src="assets/js/wow.min.js"></script>
+  <!-- slick JavaScript -->
+  <script type="text/javascript" src="assets/js/slick.js"></script>
+  <script type="text/javascript" src="assets/js/slick.min.js"></script>
+
+  <script src='https://www.google.com/recaptcha/api.js'></script>
+  <!-- Custom JavaScript -->
+  <script type="text/javascript" src="assets/js/custom.js"></script>
+  <script src="/assets/js/jquery.validate.min.js"></script>
+  <script type="text/javascript">
+    $('#registration').validate({
+      onfocusout: function (element) {
+        this.element(element);
+      },
+      errorClass: 'error_validate',
+      errorElement: 'span',
+      highlight: function (element, errorClass) {
+        $(element).removeClass(errorClass);
+      },
+      submitHandler: function (form) {
+        $('#submit_signup').attr('disabled', true);
+        form.submit();
+      }
+    });
+  </script>
+
+  <script>
+
+    // Set the date we're counting down to
+    var countDownDate = new Date("15 June, 2021 12:00:00").getTime();
+
+    // Update the count down every 1 second
+    var x = setInterval(function () {
+
+      // Get todays date and time
+      var now = new Date().getTime();
+
+      // Find the distance between now an the count down date
+      var distance = countDownDate - now;
+
+      // Time calculations for days, hours, minutes and seconds
+      var days = Math.floor(distance / (1000 * 60 * 60 * 24));
+      var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+      var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+      var seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+      //Zeros
+      var hours = (hours.toLocaleString(undefined, { minimumIntegerDigits: 2 }));
+
+      var minutes = (minutes.toLocaleString(undefined, { minimumIntegerDigits: 2 }));
+
+      var seconds = (seconds.toLocaleString(undefined, { minimumIntegerDigits: 2 }));
+
+
+
+      // Display the result in the element with id="demo"
+      document.getElementById("daysTicker").innerHTML = days;
+      document.getElementById("hoursTicker").innerHTML = hours;
+      document.getElementById("minsTicker").innerHTML = minutes;
+      document.getElementById("secsTicker").innerHTML = seconds;
+
+      // If the count down is finished, write some text 
+      if (distance < 0) {
+        clearInterval(x);
+        document.getElementById("countdown").innerHTML = "THE CAMPAIGN BEGINS";
+      }
+    }, 1000);
+
+  </script>
+
+</body>
+
+</html>

@@ -1,0 +1,736 @@
+﻿<!DOCTYPE html>
+<%- include('header') %>
+
+  <style>
+    .checkbox label input[type="checkbox"],
+    .radio label input[type="radio"] {
+      display: none;
+    }
+  </style>
+
+  <div class="upper-strip">
+    <ul class="for-desktop">
+
+      <li>1 ARTW = <%=btcValue%> BTC</li>
+      <li>1 ARTW = <%=usdValue%> USD</li>
+      <li>1 ARTW = <%=etherValue%> ETH</li>
+      <li>1 ARTW = <%=bnbValue%> BNB</li>
+
+
+    </ul>
+    <ul class="for-mobile" style="display: none;">
+
+      <li>1 ARTW = <%=btcValue%> BTC</li>
+      <li>1 ARTW = <%=usdValue%> USD</li>
+      <li>1 ARTW = <%=etherValue%> ETH</li>
+      <li>1 ARTW = <%=bnbValue%> BNB</li>
+
+    </ul>
+  </div>
+
+  <div class="page-header">
+    <h3 class="page-title">
+      <span class="page-title-icon bg-gradient-primary text-white mr-2">
+        <i class="mdi mdi-home"></i>
+      </span> Dashboard
+    </h3>
+
+  </div>
+
+  <div class="row">
+    <div class="col-md-2 stretch-card grid-margin">
+      <div class="card bg-gradient-danger card-img-holder text-white">
+        <div class="card-body">
+          <img src="assets/images/other/circle.svg" class="card-img-absolute" alt="circle-image" />
+          <h4 class="font-weight-normal mb-3">Total Worth
+          </h4>
+          <img src="assets/images/buy-coin.png" class="img-fluid icon-img">
+          <h2 class="mb-5">$ <%=full_value%>
+          </h2>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-2 stretch-card grid-margin">
+      <div class="card bg-gradient-danger card-img-holder text-white">
+        <div class="card-body">
+          <img src="assets/images/other/circle.svg" class="card-img-absolute" alt="circle-image" />
+          <h4 class="font-weight-normal mb-3">ARTW
+          </h4>
+          <img src="assets/images/buy-coin.png" class="img-fluid icon-img">
+
+          <h2 class="mb-5">
+            <%=coinbalance%> ARTW
+          </h2>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-2 stretch-card grid-margin">
+      <div class="card bg-gradient-danger card-img-holder text-white">
+        <div class="card-body">
+          <img src="assets/images/other/circle.svg" class="card-img-absolute" alt="circle-image" />
+          <h4 class="font-weight-normal mb-3">Rewards Earned
+          </h4>
+          <img src="assets/images/buy-coin.png" class="img-fluid icon-img">
+          <h2 class="mb-5">
+            <%=coinbalance%>
+          </h2>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-2 stretch-card grid-margin">
+      <div class="card bg-gradient-danger card-img-holder text-white">
+        <div class="card-body">
+          <img src="assets/images/other/circle.svg" class="card-img-absolute" alt="circle-image" />
+          <h4 class="font-weight-normal mb-3">BNB
+          </h4>
+          <img src="assets/images/bnb-icon.png" class="img-fluid icon-img">
+          <h2 class="mb-5">
+            <%=bnbBalance%>
+          </h2>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-2 stretch-card grid-margin">
+      <div class="card bg-gradient-danger card-img-holder text-white">
+        <div class="card-body">
+          <img src="assets/images/other/circle.svg" class="card-img-absolute" alt="circle-image" />
+          <h4 class="font-weight-normal mb-3">ETH
+          </h4>
+          <img src="assets/images/eth-icon.png" class="img-fluid icon-img">
+          <h2 class="mb-5">
+            <%=ethBalance%>
+          </h2>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-2 stretch-card grid-margin">
+      <div class="card bg-gradient-danger card-img-holder text-white">
+        <div class="card-body">
+          <img src="assets/images/other/circle.svg" class="card-img-absolute" alt="circle-image" />
+          <h4 class="font-weight-normal mb-3"> Connect with
+          </h4>
+          <a type="button" class="enableEthereumButton"><img src="assets/images/meta-icon.png"
+              class="img-fluid icon-img" data-toggle="tooltip" data-placement="top" title="Metamask"></a>
+
+          <script>
+            const ethereumButton = document.querySelector('.enableEthereumButton');
+            const showAccount = document.querySelector('.showAccount');
+
+            ethereumButton.addEventListener('click', () => {
+              getAccount();
+            });
+
+            async function getAccount() {
+              const accounts = await ethereum.request({ method: 'eth_requestAccounts' });
+              const account = accounts[0];
+              showAccount.innerHTML = account;
+            }
+
+          </script>
+          <!-- <img src="assets/images/bnb-icon.png" class="img-fluid icon-img" data-toggle="tooltip" data-placement="top" title="BSC Wallet">
+
+                     <img src="assets/images/arkane-wallet.png" class="img-fluid icon-img" data-toggle="tooltip" data-placement="top" title="Arkane Wallet"> -->
+
+          <!-- <img src="assets/images/trust-icon.png" class="img-fluid icon-img" data-toggle="tooltip" data-placement="top" title="Trust Wallet">  -->
+
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="row align-item-strech dash-inner-sec">
+
+    <div class="col-lg-6 col-md-12">
+      <div class="upper-block-coin dashboard-box shadow-box" style="min-height: auto;height: 100%;">
+        <div style="width: 100%;">
+          <!-- <div class="header-block clearfix">
+                           <span class="name-side green-heading">ARTW</span>
+                           <span class="logo-side"><img src="assets/images/buy-coin.png"></span>
+                         </div> -->
+          <div class="artw-align">
+            <div class="radio">
+              <label>
+                <input type="radio" id="o1" name="o1" value="artw" checked>
+                <span class="cr"><i class="cr-icon fa fa-check"></i></span>
+                <div>
+                  <img src="assets/images/buy-coin.png">
+                  ARTW
+                </div>
+              </label>
+            </div>
+            <div class="radio">
+              <label>
+                <input type="radio" id="o1" name="o1" value="eth">
+                <span class="cr"><i class="cr-icon fa fa-check"></i></span>
+                <div>
+                  <img src="assets/images/eth-icon.png">
+                  ETH
+                </div>
+              </label>
+            </div>
+            <div class="radio disabled">
+              <label>
+                <input type="radio" id="o1" name="o1" value="bnb">
+                <span class="cr"><i class="cr-icon fa fa-check"></i></span>
+                <div>
+                  <img src="assets/images/bnb-icon.png">
+                  BNB
+                </div>
+              </label>
+            </div>
+          </div>
+
+          <div class="create-wallet-block">
+            <div class="input-group input-dash copy-id-dash">
+              <input class="form-control" type="text" id="address" name="address"
+                value="<%=wallet_details.wallet_address %>" placeholder="" readonly>
+
+              <div class="input-group-append">
+                <!-- <span class="input-group-text" id="basic-addon2"><a href="javascript:void(0);" onclick="myFunction()">Copy</a></span> -->
+
+                <a href="javascript:void(0);" onclick="myFunction()"><i class="fa fa-copy"></i></a>
+                <!-- <a href=""><i class="fa fa-share"></i></a> -->
+                <a href="javascript:void(0);" download="wallet_address.txt" id="download"><i
+                    class="fa fa-share"></i></a>
+              </div>
+            </div>
+          </div>
+          <div class="next-block">
+            <span class="left-side">ARTW - 1</span>
+            <span class="equal">≅</span>
+            <span class="right-side">
+              <select name="food_selector" data-placeholder="US$ - 0.0000000">
+                <option value="pancakes"><img src="assets/images/other/4.png">USD - <%=usdValue%>
+                </option>
+                <option value="pancakes"><img src="assets/images/other/4.png">BNB - <%=bnbValue%>
+                </option>
+                <option value="pancakes"><img src="assets/images/other/4.png">ETH - <%=etherValue%>
+                </option>
+                <option value="pancakes"><img src="assets/images/other/4.png">BTC - <%=btcValue%>
+                </option>
+              </select>
+            </span>
+          </div>
+          <div class="text-center mlti-btn">
+            <a onclick="valueCheck()" class="btn btn-common light-green">Send</a>
+            <a href="/sale" target="_blank" class="btn btn-common light-green">Buy</a>
+            <a href="/receive-artw?walletid=<%-wallet_details._id %>" class="btn btn-common light-green">Receive</a>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="col-lg-6 col-md-12">
+      <div class="card steps-card text-center for-all-pages">
+        <div class="card-content collapse show">
+          <div class="card-body">
+            <div class="font-small-3 token-balance clearfix">
+              <h6 class="hbg my-2 text-left">The ARTW guide</h6>
+              <ul class="text-left four-step-list">
+                <li>This is your universal wallet. Please do remember your private key. In case it is lost, we will not
+                  be able to retrieve it and your funds would be locked forever.</li>
+                <li>ARTW coins are internal currency to our NFT and ART Marketplace, where you can buy and sell NFTs,
+                  Digital Art, paintings, collectibles and take part in open gallery auctions, NFT airdrops and online
+                  exhibitions. Moreover, you can check the authenticity of any artwork, generate certificates for each
+                  artwork listed on our network. Check out our marketplace now! <a href="http://theartw.com/">The
+                    ARTW</a></li>
+
+              </ul>
+
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+
+
+  </div>
+
+
+
+  <%- include('footer') %>
+
+    <script type="text/javascript">
+      (function () {
+        var textFile = null,
+          makeTextFile = function (text) {
+            var data = new Blob([text], { type: 'text/plain' });
+            if (textFile !== null) {
+              window.URL.revokeObjectURL(textFile);
+            }
+            textFile = window.URL.createObjectURL(data);
+            return textFile;
+          };
+        var create = document.getElementById('download'),
+          textbox = document.getElementById('address');
+        create.addEventListener('click', function () {
+          var link = document.getElementById('download');
+          link.href = makeTextFile(textbox.value);
+        }, false);
+      })();
+    </script>
+
+    <script type="text/javascript">
+
+      function valueCheck() {
+        const rbs = document.querySelectorAll('input[name="o1"]');
+        let selectedValue;
+        for (const rb of rbs) {
+          if (rb.checked) {
+            selectedValue = rb.value;
+            break;
+          }
+        }
+        window.location.href = '/Send-artw?walletid=<%-wallet_details._id %>&type=' + selectedValue;
+      }
+
+      function wallet_logout(val) {
+        var wallet_id = val;
+        $.ajax({
+          type: "post",
+          url: "/Wallet-logout",
+          data: { 'wallet_id': wallet_id },
+          success: function (data) {
+            if (data == 'success') {
+              alert('Wallet logged out successfully.');
+              location.reload();
+            }
+            else {
+              alert('something is wrong please try again');
+              location.reload();
+            }
+
+          }
+        });
+      }
+    </script>
+
+    <script>
+      /*
+    Reference: http://jsfiddle.net/BB3JK/47/
+    */
+
+
+
+      // $(document).ready(function(){
+      let walletid = $('#walletid').val();
+
+      $.ajax({
+        type: "post",
+        url: "/verification_type",
+        data: { 'wallet_id': walletid },
+        success: function (data) {
+          // alert(data.auth);
+          let auth_type = data.auth;
+          if (auth_type == 'email') {
+            $('#email_button').attr('checked', true);
+          }
+          else if (auth_type == '2fa') {
+            $('#2fa_button').attr('checked', true);
+          }
+
+        }
+      });
+
+      // $('#email_button').attr('checked', true);
+      // })
+
+      $('#2fa_button').change(function () {
+        if ($(this).is(":checked")) {
+          $('#email_button').attr('checked', false);
+          changeVerificationStatus('2fa');
+        }
+        if ($(this).is(":unchecked")) {
+          $('#email_button').attr('checked', true);
+          changeVerificationStatus('email');
+        }
+      })
+
+      $('#email_button').change(function () {
+        if ($(this).is(":checked")) {
+          $('#2fa_button').attr('checked', false);
+          changeVerificationStatus('email');
+        }
+        if ($(this).is(":unchecked")) {
+          $('#2fa_button').attr('checked', true);
+          changeVerificationStatus('2fa');
+        }
+      })
+
+      function changeVerificationStatus(factor) {
+        // alert(factor);
+        $.ajax({
+          type: "post",
+          url: "/change_verification_type",
+          data: { 'factor': factor, 'user_id': walletid },
+          success: function (data) {
+            //
+          }
+        });
+      }
+
+      $('select').each(function () {
+        var $this = $(this), numberOfOptions = $(this).children('option').length;
+
+        $this.addClass('select-hidden');
+        $this.wrap('<div class="select"></div>');
+        $this.after('<div class="select-styled"></div>');
+
+        var $styledSelect = $this.next('div.select-styled');
+        $styledSelect.text($this.children('option').eq(0).text());
+
+        var $list = $('<ul />', {
+          'class': 'select-options'
+        }).insertAfter($styledSelect);
+
+        for (var i = 0; i < numberOfOptions; i++) {
+          $('<li />', {
+            text: $this.children('option').eq(i).text(),
+            rel: $this.children('option').eq(i).val()
+          }).appendTo($list);
+        }
+
+        var $listItems = $list.children('li');
+
+        $styledSelect.click(function (e) {
+          e.stopPropagation();
+          $('div.select-styled.active').not(this).each(function () {
+            $(this).removeClass('active').next('ul.select-options').hide();
+          });
+          $(this).toggleClass('active').next('ul.select-options').toggle();
+        });
+
+        $listItems.click(function (e) {
+          e.stopPropagation();
+          $styledSelect.text($(this).text()).removeClass('active');
+          $this.val($(this).attr('rel'));
+          $list.hide();
+          //console.log($this.val());
+        });
+
+        $(document).click(function () {
+          $styledSelect.removeClass('active');
+          $list.hide();
+        });
+
+      });
+    </script>
+
+    <script type="text/javascript" src="https://kkog.io/public/assets/js/loader.js"></script>
+    <script>
+      google.charts.load('current', { packages: ['corechart', 'bar'] });
+      google.charts.setOnLoadCallback(drawStacked);
+
+      function drawStacked() {
+
+
+        var data = google.visualization.arrayToDataTable([
+          ['Month and Year', 'CASHOUT', 'REINVEST', { role: 'annotation' }],
+          ['january 2018', 70, 30, '1'],
+          ['january 2018', 60, 25, '2'],
+          ['january 2018', 80, 30, '3'],
+          ['january 2018', 50, 20, '7']
+        ]);
+
+
+        var options = {
+          isStacked: true,
+          legendTextStyle: {
+            color: '#000',
+          },
+          hAxis: {
+            format: 'year',
+            textStyle: { color: '#000' },
+            viewWindow: {
+              min: [7, 30, 0],
+              max: [17, 30, 0]
+            },
+            gridlines: {
+              color: 'transparent'
+            }
+          },
+          vAxis: {
+            title: '(LLC)',
+            textStyle: { color: '#fff' },
+            baselineColor: '#000',
+            gridlines: {
+              color: 'transparent'
+            }
+
+          },
+
+
+
+
+          colors: ['#371f74', '#5D89A8'],
+          backgroundColor: 'transparent',
+          legend: 'bottom',
+
+          pointsVisible: true,
+          bar: { groupWidth: "40%" },
+
+
+
+        };
+
+        // Chart.Legend.prototype.afterFit = function() {
+        //   this.height = this.height + 50;
+        // };
+        var chart = new google.visualization.ColumnChart(document.getElementById('chart_div'));
+        chart.draw(data, options);
+
+      }
+    </script>
+
+    <script>
+      google.charts.load('current', { 'packages': ['corechart'] });
+      google.charts.setOnLoadCallback(drawChart);
+
+      function drawChart() {
+        var data = google.visualization.arrayToDataTable([
+          ['Year', 'Sales'],
+          ['Jan 2019', 800],
+          ['Feb 2019', 900],
+          ['Mar 2019', 1000],
+          ['Apr 2019', 950],
+          ['May 2019', 1000],
+          ['June 2019', 800],
+          ['July 2019', 850],
+          ['Aug 2019', 900],
+          ['Sept 2019', 850],
+          ['Oct 2019', 800],
+          ['Nov 2019', 750],
+          ['Dec 2019', 700]
+        ]);
+
+        var options = {
+
+          hAxis: {
+            format: 'year',
+            textStyle: { color: '#000' },
+            viewWindow: {
+              min: [7, 30, 0],
+              max: [17, 30, 0]
+            },
+            gridlines: {
+              color: 'transparent'
+            }
+          },
+          chartArea: {
+            left: 40,
+            top: 10,
+            width: 800,
+            height: 140
+          },
+          vAxis: {
+            textStyle: { color: '#000' },
+            baselineColor: '#000',
+            gridlines: {
+              color: 'transparent'
+            }
+
+          },
+          legend: 'none',
+          backgroundColor: 'transparent',
+          colors: ['#371f74']
+        };
+
+
+        var chart = new google.visualization.AreaChart(document.getElementById('chart_div_area'));
+        chart.draw(data, options);
+      }
+    </script>
+
+    <script>
+      google.charts.load('current', { packages: ['corechart', 'line'] });
+      google.charts.setOnLoadCallback(drawBackgroundColor);
+
+      function drawBackgroundColor() {
+        var data = new google.visualization.DataTable();
+        data.addColumn('number', 'X');
+        data.addColumn('number', 'Dogs');
+
+        data.addRows([
+          [1, 6], [1, 10], [2, 23], [3, 17], [4, 18], [5, 9],
+          [6, 11], [7, 27], [8, 33], [9, 40], [10, 32], [11, 35],
+          [12, 30], [13, 40], [14, 42], [15, 47], [16, 44], [17, 48],
+          [18, 52], [19, 54], [20, 42], [21, 55], [22, 56], [23, 57],
+          [24, 60], [25, 50], [26, 52], [27, 51], [28, 49], [29, 53],
+          [30, 55], [31, 60], [32, 61], [33, 59], [34, 62], [35, 65],
+          [36, 62], [37, 58], [38, 55], [39, 61], [40, 64], [41, 65],
+          [42, 63], [43, 66], [44, 67], [45, 69], [46, 69], [47, 70],
+          [48, 72], [49, 68], [50, 66], [51, 65], [52, 67], [53, 70],
+          [54, 71], [55, 72], [56, 73], [57, 75], [58, 70], [59, 68],
+          [60, 64], [61, 60], [62, 65], [63, 67], [64, 68], [65, 69],
+          [66, 70], [67, 72], [68, 75], [69, 80]
+        ]);
+
+        var options = {
+          hAxis: {
+            textPosition: 'none',
+            gridlines: {
+              color: 'transparent'
+            }
+          },
+          vAxis: {
+            textPosition: 'none',
+            gridlines: {
+              color: 'transparent'
+            }
+          },
+          chartArea: {
+            left: 0,
+            top: 10,
+            width: 500,
+            height: 80
+          },
+          legend: 'none',
+          backgroundColor: 'transparent',
+          colors: ['#371f74'],
+          baselineColor: '#fff',
+        };
+
+        var chart = new google.visualization.LineChart(document.getElementById('chart_div_line'));
+        chart.draw(data, options);
+      }
+    </script>
+    <script>
+      google.charts.load('current', { packages: ['corechart', 'line'] });
+      google.charts.setOnLoadCallback(drawBackgroundColor);
+
+      function drawBackgroundColor() {
+        var data = new google.visualization.DataTable();
+        data.addColumn('number', 'X');
+        data.addColumn('number', 'Dogs');
+
+        data.addRows([
+          [1, 6], [1, 10], [2, 23], [3, 17], [4, 18], [5, 9],
+          [6, 11], [7, 27], [8, 33], [9, 40], [10, 32], [11, 35],
+          [12, 30], [13, 40], [14, 42], [15, 47], [16, 44], [17, 48],
+          [18, 52], [19, 54], [20, 42], [21, 55], [22, 56], [23, 57],
+          [24, 60], [25, 50], [26, 52], [27, 51], [28, 49], [29, 53],
+          [30, 55], [31, 60], [32, 61], [33, 59], [34, 62], [35, 65],
+          [36, 62], [37, 58], [38, 55], [39, 61], [40, 64], [41, 65],
+          [42, 63], [43, 66], [44, 67], [45, 69], [46, 69], [47, 70],
+          [48, 72], [49, 68], [50, 66], [51, 65], [52, 67], [53, 70],
+          [54, 71], [55, 72], [56, 73], [57, 75], [58, 70], [59, 68],
+          [60, 64], [61, 60], [62, 65], [63, 67], [64, 68], [65, 69],
+          [66, 70], [67, 72], [68, 75], [69, 80]
+        ]);
+
+        var options = {
+          hAxis: {
+            textPosition: 'none',
+            gridlines: {
+              color: 'transparent'
+            }
+          },
+          vAxis: {
+            textPosition: 'none',
+            gridlines: {
+              color: 'transparent'
+            }
+          },
+          chartArea: {
+            left: 0,
+            top: 10,
+            width: 500,
+            height: 80
+          },
+          legend: 'none',
+          backgroundColor: 'transparent',
+          colors: ['#371f74'],
+          baselineColor: '#fff',
+        };
+
+        var chart = new google.visualization.LineChart(document.getElementById('chart_div_line2'));
+        chart.draw(data, options);
+      }
+    </script>
+    <script>
+      google.charts.load('current', { packages: ['corechart', 'line'] });
+      google.charts.setOnLoadCallback(drawBackgroundColor);
+
+      function drawBackgroundColor() {
+        var data = new google.visualization.DataTable();
+        data.addColumn('number', 'X');
+        data.addColumn('number', 'Dogs');
+
+        data.addRows([
+          [1, 6], [1, 10], [2, 23], [3, 17], [4, 18], [5, 9],
+          [6, 11], [7, 27], [8, 33], [9, 40], [10, 32], [11, 35],
+          [12, 30], [13, 40], [14, 42], [15, 47], [16, 44], [17, 48],
+          [18, 52], [19, 54], [20, 42], [21, 55], [22, 56], [23, 57],
+          [24, 60], [25, 50], [26, 52], [27, 51], [28, 49], [29, 53],
+          [30, 55], [31, 60], [32, 61], [33, 59], [34, 62], [35, 65],
+          [36, 62], [37, 58], [38, 55], [39, 61], [40, 64], [41, 65],
+          [42, 63], [43, 66], [44, 67], [45, 69], [46, 69], [47, 70],
+          [48, 72], [49, 68], [50, 66], [51, 65], [52, 67], [53, 70],
+          [54, 71], [55, 72], [56, 73], [57, 75], [58, 70], [59, 68],
+          [60, 64], [61, 60], [62, 65], [63, 67], [64, 68], [65, 69],
+          [66, 70], [67, 72], [68, 75], [69, 80]
+        ]);
+
+        var options = {
+          hAxis: {
+            textPosition: 'none',
+            gridlines: {
+              color: 'transparent'
+            }
+          },
+          vAxis: {
+            textPosition: 'none',
+            gridlines: {
+              color: 'transparent'
+            }
+          },
+          chartArea: {
+            left: 0,
+            top: 10,
+            width: 500,
+            height: 80
+          },
+          legend: 'none',
+          backgroundColor: 'transparent',
+          colors: ['#371f74'],
+          baselineColor: '#fff',
+        };
+
+        var chart = new google.visualization.LineChart(document.getElementById('chart_div_line3'));
+        chart.draw(data, options);
+      }
+    </script>
+    <script type="text/javascript">
+      function myFunction() {
+        var copyText = document.getElementById("address");
+        if ($('#address').val() != "") {
+          copyText.select();
+          document.execCommand("copy");
+          alert("Wallet address is copied.");
+        }
+      }
+    </script>
+
+    <script type="text/javascript">
+      (function () {
+        var textFile = null,
+          makeTextFile = function (text) {
+            var data = new Blob([text], { type: 'text/plain' });
+            if (textFile !== null) {
+              window.URL.revokeObjectURL(textFile);
+            }
+            textFile = window.URL.createObjectURL(data);
+            return textFile;
+          };
+        var create = document.getElementById('download'),
+          textbox = document.getElementById('address');
+        create.addEventListener('click', function () {
+          var link = document.getElementById('download');
+          link.href = makeTextFile(textbox.value);
+        }, false);
+      })();
+    </script>
+
+    <script type="text/javascript" src="https://kkog.io/public/assets/js/jquery-3.3.1.min.js"></script>

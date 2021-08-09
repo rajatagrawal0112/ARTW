@@ -1,0 +1,1297 @@
+<!DOCTYPE html>
+<html>
+<head>
+     <title>The ArtW</title>
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=1.0, minimum-scale=1.0, maximum-scale=1.0">
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="assets/images/favicon.png">
+  <!-- Bootstrap Core CSS -->
+    <link href="assets/css/bootstrap.min.css" rel="stylesheet"/>
+    <link href="assets/css/bootstrap-dropdownhover.min.css" rel="stylesheet"/>
+    <!-- slick CSS -->
+    <link href="assets/css/slick.css" rel="stylesheet"/>
+    <link href="assets/css/slick-theme.css" rel="stylesheet"/>
+  <!-- Animate CSS -->
+    <link href="assets/css/animate.css" rel="stylesheet"/>
+    <!-- hover-min CSS -->
+    <link href="assets/css/hover-min.css" rel="stylesheet"/>
+    <!-- yamm css -->
+    <link href="assets/css/yamm.css" rel="stylesheet"/>
+    <!-- Font-awesome web fonts with css -->
+    <link href="assets/css/fontawesome-all.css" rel="stylesheet" type="text/css"/>
+    <!-- Font-awesome web fonts with css -->
+    <!-- loader css -->
+    <link href="assets/css/loader.css" rel="stylesheet"/>
+  <!-- Custom CSS -->
+   <!--  <link href="assets/css/custom-home-new.css" rel="stylesheet"/> -->
+    <link href="assets/css/custom-llc.css" rel="stylesheet"/>
+ 
+
+    <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+     <link rel="stylesheet" href="assets/css/jquery-ui.css">
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+    <style>
+      .error_validate {
+        color: red;
+      }
+    </style>
+</head>
+<body class="index-body">
+
+<!-- normal header -->
+
+<div class="upper-strip">
+  <ul class="for-desktop">
+    
+    <li>1 ARTW = <%=token_values.btcValue%> BTC</li>
+    <li>1 ARTW = <%=token_values.usdValue%> USD</li>
+    <li>1 ARTW = <%=token_values.etherValue%> ETH</li>
+    <li>1 ARTW = <%=token_values.bnbValue%> BNB</li>
+    <!-- <li>1 ARTW = <%=token_values.usdValue%> GBP</li> -->
+    
+   <li>
+        <a href="/comingsoon" target="_blank"><img src="assets/images_old/new-img/appstore.png"></a>
+        
+    </li>
+    <li>
+        
+        <a href="/comingsoon" target="_blank"><img src="assets/images_old/new-img/playstore.png"></a>
+    </li>
+    
+  </ul>
+  <ul class="for-mobile" style="display: none;">
+    
+    <li>1 ARTW = <%=token_values.btcValue%> BTC</li>
+    <li>1 ARTW = <%=token_values.usdValue%> USD</li>
+    <li>1 ARTW = <%=token_values.etherValue%> ETH</li>
+    <li>1 ARTW = <%=token_values.bnbValue%> BNB</li>
+    <!-- <li>1 ARTW = <%=token_values.usdValue%> GBP</li> -->
+    
+    <li><a href="/comingsoon" target="_blank"><img src="assets/images_old/new-img/appstore.png"></a></li>
+    <li><a href="/comingsoon" target="_blank"><img src="assets/images_old/new-img/playstore.png"></a></li>
+  </ul>
+</div>
+<header class="header-main index-header">
+    <div class="container">
+        <nav class="navbar navbar-expand-lg navbar-light">
+            <a class="navbar-brand logo" href="">
+                <img src="assets/images/logo-white.png" class="color-logo" alt="The Art W Logo">
+            </a>
+
+            <ul class="navbar-nav for-mobile-view" style="display: none;">
+                    <li class="nav-item">
+                      <a class="nav-link sign-up-btn purple-btn-index" href="/signup">Buy</a>
+                  </li>
+                  
+                    <li class="nav-item">
+                      <a class="nav-link sign-up-btn purple-btn-index" href="/signup">Sign Up</a>
+                  </li>
+
+                  <li class="nav-item">
+                    <a class="nav-link sign-up-btn purple-btn-index" href="/login">Log In</a>
+                </li>
+                </ul>
+
+
+
+
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav ml-auto navigation" id="main-nav">
+                  <li class="nav-item active">
+                        <a class="nav-link" href="#about">About ARTW</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#services">Key Services</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#solutions">Solutions</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#token-sale">Tokenomics</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#roadmap">Roadmap</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link " href="#white-paper">Whitepaper</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#our-team">Our Team</a>
+                    </li>
+
+                    <li class="nav-item">
+                      <a class="nav-link sign-up-btn purple-btn-index" href="/signup">Buy</a>
+                  </li>
+                  
+                    <li class="nav-item">
+                      <a class="nav-link sign-up-btn purple-btn-index" href="/signup">Sign Up</a>
+                  </li>
+
+                  <li class="nav-item">
+                    <a class="nav-link sign-up-btn purple-btn-index" href="/login">Log In</a>
+                </li>
+                </ul>
+            </div>
+        </nav>
+    </div>
+</header>
+
+
+<section class="sec-banner">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12">
+         <div class="outer-banner">
+          <div class="row">
+              <div class="col-md-12">
+                <div class="banner-slider">
+                   
+                     <div class="item">
+                        <div class="row">
+                        	<div class="col-md-4">
+                        		<div class="banner-inner-text text-center">
+		                          <h2>Sale Start In:</h2>
+		                          <p>We aim to use the most secured blockchain technology to create tamper-proof certificates for ART that can be verified anytime, anywhere in the world.</p>
+		                           <div>
+		                           	<div class="ico-counter">
+	                                    <div class="timer">
+	                                        <div id="daysTicker" class="countdown"></div>
+	                                        <div class="counter-text">DAYS</div>
+	                                    </div>
+	                                    <div class="timer">
+	                                        <div id="hoursTicker" class="countdown"></div>
+	                                        <div class="counter-text">HOURS</div>
+	                                    </div>
+	                                    <div class="timer">
+	                                        <div id="minsTicker" class="countdown"></div>
+	                                        <div class="counter-text">MINUTES</div>
+	                                    </div>
+	                                    <div class="timer">
+	                                        <div id="secsTicker" class="countdown last"></div>
+	                                        <div class="counter-text">SECONDS</div>
+	                                    </div>
+	                                </div>
+		                           </div>
+		                          <div class="banner-btn">
+		                          	<a href="#contact" class="purple-btn-index">Buy ARTW</a>
+			                          
+			                        </div>
+		                          </div>
+                        	</div>
+                        </div>
+                    </div>
+
+                     <div class="item">
+                        <div class="row">
+                        	<div class="col-md-7">
+                        		<div class="banner-inner-text">
+		                          <h2>The World's Leading ICO Platform That Offers Blockchain on  Art.</h2>
+		                          <p>We aim to use the most secured blockchain technology to create tamper-proof certificates for ART that can be verified anytime, anywhere in the world. Such certificates would be accessible anytime, anywhere, secured by blockchain technology, which is tamperproof. We also plan to insert specially designed chips on paintings, which would be readable through our applications.</p>
+		                          <div class="banner-btn">
+		                          	<a href="/signup" class="purple-btn-index">Buy ARTW</a>
+			                          <a href="/artw-whitepaper.pdf" target="_blank" class="purple-btn-index">WhitePaper</a>
+			                        </div>
+		                          </div>
+                        	</div>
+                        </div>
+                    </div>
+                    
+                </div>
+              </div>
+          </div>
+         </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<section class="about-us ambout-new-sec"  id="about">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+               <h3 class="main-heading-index-new wow slideInLeft"><span>About</span><b>What is ARTW?</b></h3>
+               <p class="text-center small-heading wow slideInRight">We will provide services to all stakeholders in the ART ecosystem and give a platform for young, upcoming Artists to showcase their talents!</p>
+            </div>
+        </div>
+        <div class="row align-item-center">
+            <div class="col-md-7">
+            	<div class="about-text-inner wow slideInLeft">
+            		<!-- <h4 class="sub-heading">Lorem Ipsum is simply <br> dummy text of the printing</h4> -->
+            		<p>The ARTW is a blockchain-based Art verification and art trading platform. We are
+                  building an Art ecosystem which will enable all the stakeholders of the industry –
+                  Artists, collectors, art enthusiasts, art exhibitors & galleries, and institutional buyers to buy/sell genuine, verified artwork from our trading platform.</p>
+            		<p>We utilize the most secured blockchain technology for art certification and define the authenticity of any artwork, anytime, anywhere in the world. Our platform will enable art lovers to visit and explore any artists’ artwork digitally, through Virtual and Augmented Reality techniques. Moreover, ART galleries can conduct e-auctions and display featured paintings on our platform. Users can invest in artwork without worrying about the authenticity of the artwork.</p>
+            		<p>To simplify things further, we will be launching a native token called ARTW, an ERC20 based POA token, which will be legally tradable on existing crypto exchanges and partnering Art Galleries and Artists. ARTW can be considered a utility token within its community since it also acts as a means of exchange in the art marketplace.</p>
+            	</div>
+            </div>
+            <div class="col-md-5">
+            	<div class="about-img wow slideInRight">
+            		<img src="assets/images/art-about.png" class="img-fluid">
+            	</div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="rocket-fuel-sec page-section" id="services">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+               <h3 class="main-heading-index-new white-heading wow slideInLeft"><span>Key Services</span><b>ARTW</b></h3>
+               <!-- <p class="text-center color-white small-heading wow slideInRight">Revenues for token holders consist of:<br>
+                • Verification Services<br>
+                • Commission from Marketplace<br>
+                • Online Exhibitions </p> -->
+
+                <ul class="key-services">
+                    <li><img src="assets/images/icons/nft.png" class="img-fluid"> NFT Marketplace</li>
+                    <li><img src="assets/images/icons/verify painting.png" class="img-fluid"> Blockchain based ART Verification</li>
+                    <li><img src="assets/images/icons/artist-profile-management.png" class="img-fluid"> Artist Profile Management</li>
+                    <li><img src="assets/images/icons/online-exb.png" class="img-fluid"> Online Exhibitions</li>
+                    <li><img src="assets/images/icons/fine-art.png" class="img-fluid"> Fine art marketplace</li>
+                    <li><img src="assets/images/icons/commissioned-work.png" class="img-fluid"> Commissioned work</li>
+                </ul>
+            </div>
+        </div>
+        <!-- <div class="row">
+            <div class="col-md-8 m-auto">
+            	<div class=" text-center color-white wow slideInUp">
+            		<p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.</p>
+            		<p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived  </p>
+            		<p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not  </p>
+            	</div>
+            </div>
+        </div> -->
+    </div>
+</section>
+
+<section class="about-us page-section" id="solutions">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+               <h3 class="main-heading-index-new wow slideInLeft"><span>Solutions</span><b>Problems & Solutions</b></h3>
+               <p class="text-center small-heading wow slideInRight"></p>
+            </div>
+        </div>
+        <div class="row align-item-center">
+            <div class="col-md-5 offset-md-1">
+            	<div class="about-text-inner wow slideInLeft">
+            		<h4 class="sub-heading">Problems</h4>
+            		<p>How do you verify a painting? 
+                  It is estimated that 50% of artworks examined were either forged or
+                  not attributed to the correct artist. The current methods of verification are error-prone and judgemental. Artwork can easily be duplicated. As a result, its value drops and the prospect of a market disappears. An estimated INR 0.8-1 billion worth of forged art is traded in India every year and works by modern artists such as M. F. Husain, S. H. Raza and F. N. Souza</p>
+            		<!-- <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. </p> -->
+            	</div>
+            </div>
+            <div class="col-md-5">
+            	<div class="about-img wow slideInRight">
+            		<img src="assets/images/problm-img.png" class="img-fluid">
+            	</div>
+            </div>
+        </div>
+         <div class="row align-item-center">
+            <div class="col-md-5  order-2">
+            	<div class="about-text-inner wow slideInRight">
+            		<h4 class="sub-heading">Solutions</h4>
+            		<p>Tamper-proof Certificates For
+                  Art And Collectibles, Secured
+                  By Blockchain Technology.</p>
+            		<!-- <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. </p> -->
+            	</div>
+            </div>
+            <div class="col-md-5 offset-md-1">
+            	<div class="about-img wow slideInLeft">
+            		<img src="assets/images/new-img/solutions.png" class="img-fluid">
+            	</div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="rocket-fuel-sec page-section token-sale" id="token-sale">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+               <h3 class="main-heading-index-new white-heading wow slideInLeft"><span>Pre-Sale & Values</span><b>Token Allocation</b></h3>
+               <p class="text-center color-white small-heading wow slideInRight">ARTW is a utility token, approved and regulated by the laws of the United
+                Kingdom. Our tokens can be used to purchase Artworks from the participating
+                galleries. The total number of tokens available would be 100 million,
+                with an initial token price of USD 1.00. The price of tokens will be
+                based on demand and supply.<br>
+                Soft Cap = USD 10 Million<br>
+                Hard Cap = USD 40 Million</p>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-6 m-auto">
+            	<div class=" text-center color-white wow slideInUp">
+            		<img src="assets/images/new-img/index_graph.png" class="img-fluid">
+            	</div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="about-us page-section" id="roadmap">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+               <h3 class="main-heading-index-new wow slideInLeft"><span>Implementation</span><b>RoadMap</b></h3>
+               <!-- <p class="text-center small-heading wow slideInRight">Coming Soon </p> -->
+            </div>
+        </div>
+        <div>
+			<section class="timeline">
+			  <ol>
+			    <li class="running">
+			      <div>
+			        <time>Jan-June 2021</time>
+			           <p>Research & development of ART related Blockchain ideas</p> 
+			           <p>Conceptualization and Planning phase</p>
+			           <p>Design Finalization</p>
+			           <p>Legal Registerations and Compliances</p>
+			           <p>ARTW Team Formation</p>
+			           <p>ARTW Associations and Artist Advisory Panel</p>
+			           <p>ARTW Presale & Tokenization</p>
+			      </div>
+			    </li>
+			    <li>
+			      <div>
+			        <time>Jul-Sep 2021</time>
+			           <p>Creating presence in 2 Countries</p> 
+			           <p>Launch Of Airdrop -phase 1</p>
+			           <p>Launch of ART Marketplace (Beta Version)</p>
+			           <p>Registering Artists, Art Galleries & Collectors</p>
+			           <p>Start development of chip based ART Authentication System</p>
+			           <p>Adding digital artworks</p>
+			      </div>
+			    </li>
+			    <li>
+			      <div>
+			        <time>Oct-Dec 2021</time>
+			           <p>Creating presence in 3 Countries</p> 
+			           <p>Launch Of Airdrop -phase 2</p>
+			           <p>Launch of Mobile Applications (Beta Version)</p>
+			           <p>Registering Artists, Art Galleries & Collectors</p>
+			           <p>Closure of pre-sales</p>
+			      </div>
+			    </li>
+			    <li>
+			      <div>
+			        <time>Jan-Mar 2022</time>
+			           <p>Final Airdrop</p> 
+			           <p>Launch of IoT based smart chips forpaintings</p>
+			           <p>Launch of e-auctions through platform</p>
+			           <p>Participate in Atleast Five Art Exhibitions</p>
+			           <p>Get Commissioned work for Artists</p>
+			           <p>Expanding ART ecosystem</p>
+			      </div>
+			    </li>
+			    <li>
+			      <div>
+			        <time>Apr-Jun 2022</time>
+			           <p>Expanding geographical presence</p> 
+			           <p>Upgrading the Logistics network Listing ARTW on Exchanges</p>
+			           <p>Launch of ARTIST rating system</p>
+			      </div>
+			    </li>
+			    <li>
+			      <div>
+			        <time>Jul-Sep 2022</time>
+			           <p>Launch of Loan against ARTwork (as collateral) phase 1 - Through ARTW tokens</p> 
+			           <p>Launch of Virtual exhibitions</p>
+			           <p>Building a voting mechanism for elite artworks</p>
+			      </div>
+			    </li>
+			     <li>
+			      <div>
+			        <time>Oct-Dec 2022</time>
+			           <p>Launch of Artist Online Studios</p> 
+			           <p>Launch of theme based ART Competition</p>
+			           <p>Launch of ART digital magazine</p>
+			           <p>Global Art Fairs and PR Events</p>
+			      </div>
+			    </li>
+
+			     <li>
+			      <div>
+			        <time>Jan-Mar 2023</time>
+			           <p>Modify roadmap according to accomplishments</p> 
+			           <p>Launch of Loan against ARTwork (as collateral) phase 2 - Through fiat currencies</p>
+			           <p>Enhancing Artist PR Management Services</p>
+			           <p>Token Buyback from open market and Burning</p>
+			      </div>
+			    </li>
+
+			     <li>
+			      <div>
+			        <time>Apr-Jun 2023</time>
+			           <p>Launch of Artist PR Management Services</p> 
+			           <p>Conducting Global ART Competitions</p>
+			           <p>Adding VR / AR capabilities for Virtual Exhibitions</p>
+			      </div>
+			    </li>
+			     <li>
+			      <div>
+			        <time>Jul-Sep 2023</time>
+			           <p>Launch of "ARTWAssist" for Artists to asses market price of their artwork</p> 
+			           <p>Enhancing Virtual exhibitions</p>
+			           <p>Continued Integrations with physical Art Galleries</p>
+			      </div>
+			    </li>
+
+			     <li>
+			      <div>
+			        <time>Oct-Dec 2023</time>
+			           <p>Launch of ART Statistics and Analytics</p>
+			           <p>Launch of P2P Art Trading platform</p>
+			      </div>
+			    </li>
+			     <li>
+			      <div>
+			        <time>Jan-Mar 2024</time>
+			           <p>Token burn from profits</p> 
+			           <p>Launch of Artist loyalty program</p> 
+			           <p>Getting recognitions from leading art associations</p>
+			           <p>Expanding Geographical presence</p>
+			           <p>Automated Quotation system for corporate buying</p>
+			      </div>
+			    </li>
+			     <li>
+			      <div>
+			        <time>Apr-Jun 2024</time>
+			           <p>Launch of "ARTVALUER" for users to calculate value of their artwork</p> 
+			           <p>Enhancing Artist Rating Algorithms</p>
+			           <p>Empanelling vendors/suppliers for artists</p>
+			           <p>Launch of Theme based premium sourcing services</p>
+			      </div>
+			    </li>
+			     <li>
+			      <div>
+			        <time>Jul-Sep 2024</time>
+			           <p>Open Apis for Generated ART Statistics platform</p> 
+			           <p>Enhancing p2p Trading platform</p>
+			           <p>Pre-book artists, commissioned work</p>
+			           <p>Launch of Grassroot ART Initiative</p>
+			      </div>
+			    </li>
+			     <li>
+			      <div>
+			        <time>Oct-Dec 2024</time>
+			           <p>Launch of Artist Stock market</p> 
+			           <p>Launch of Art Asset Management Plans</p>
+			           <p>Expanding the ART ecosystem</p>
+			      </div>
+			    </li>
+			    
+			    <li></li>
+			  </ol>
+			  
+			  <div class="arrows">
+			    <button class="arrow arrow__prev disabled" disabled>
+			      <img src="assets/images/icons/left.png" alt="prev timeline arrow">
+			    </button>
+			    <button class="arrow arrow__next">
+			      <img src="assets/images/icons/right.png" alt="next timeline arrow">
+			    </button>
+			  </div>
+			</section>
+        </div>
+    </div>
+</section>
+
+<!-- <section class="rocket-fuel-sec">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+               <h3 class="main-heading-index-new white-heading wow slideInLeft"><span>Associate</span><b>Partners</b></h3>
+               <p class="text-center color-white small-heading wow slideInRight">Lorem Ipsum is simply dummy text of the printing and typesetting industry.Lorem Ipsum is simply dummy text of the printing </p>
+            </div>
+        </div>
+        <div class="row partner-row-padding wow slideInUp">
+        	<div class="col-md-10 m-auto">
+        		<div class="row">
+		            <div class="col-md-2">
+		            	<div class="text-center">
+		            		<img src="assets/images_old/new-img/appstore.png" class="img-fluid">
+		            	</div>
+		            </div>
+		            <div class="col-md-2">
+		            	<div class="text-center">
+		            		<img src="assets/images_old/new-img/appstore.png" class="img-fluid">
+		            	</div>
+		            </div>
+		            <div class="col-md-2">
+		            	<div class="text-center">
+		            		<img src="assets/images_old/new-img/appstore.png" class="img-fluid">
+		            	</div>
+		            </div>
+		            <div class="col-md-2">
+		            	<div class="text-center">
+		            		<img src="assets/images_old/new-img/appstore.png" class="img-fluid">
+		            	</div>
+		            </div>
+		            <div class="col-md-2">
+		            	<div class="text-center">
+		            		<img src="assets/images_old/new-img/appstore.png" class="img-fluid">
+		            	</div>
+		            </div>
+		            <div class="col-md-2">
+		            	<div class="text-center">
+		            		<img src="assets/images_old/new-img/appstore.png" class="img-fluid">
+		            	</div>
+		            </div>
+		        </div>
+        	</div>
+        </div>
+    </div>
+</section> -->
+
+<section class="about-us page-section" id="white-paper">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+               <h3 class="main-heading-index-new wow slideInLeft"><span>Documents</span><b>Whitepaper</b></h3>
+               <p class="text-center small-heading wow slideInRight">We have created a unique ART industry Ecosystem on blockchain.
+                </p>
+            </div>
+        </div>
+        <div class="row align-item-center">
+        	   <div class="col-md-5">
+            	<div class="about-img wow slideInLeft">
+            		<img src="assets/images/new-img/whitepaper_logo.png" class="img-fluid">
+            	</div>
+            </div>
+            <div class="col-md-7">
+            	<div class="about-text-inner wow slideInRight">
+            		<h4 class="sub-heading">Read our documents</h4>
+                    <p>We have created a unique ART industry Ecosystem on blockchain, where all
+                stakeholders like Collectors, Enthusiasts, Artists, Galleries, Auction houses and
+                Art Owners can register and start using our platform for their own benefits.
+                Our platform opens a gamut of possibilities and deals very effectively with the
+                biggest problems of the industry – verifying the authenticity of ARTwork and a
+                seamless low cost platform for Artists to showcase their Artworks.</p>
+            		<p>Our aim is to revolutionize the global fine art market (USD ___ in 2019, as per
+                  ART Basel & UBS 2020 report). As a business model we will be active in key
+                  global ART markets – USA, Europe, China and upcoming potential markets,
+                  India and South Africa. Our focus will be on empanelling Artists and Artworks
+                  on our platform in the first stage, mainly paintings from Ivy League painters.
+                  Building trust between buyer and sellers by eradicating fake paintings from the
+                  industry is our ultimate aim, by using the world’s most secure and transparent
+                  blockchain technology.</p>
+            		<!-- <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. </p>
+            		<p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. </p> -->
+            		<div class="banner-btn">
+                  <a href="/artw-whitepaper.pdf" target="_blank" class="purple-btn-index">Whitepaper</a>
+                  <a href="/faq" class="purple-btn-index">FAQs</a>
+                  <a href="/signup" class="purple-btn-index">Buy Now</a>
+	                    </div>
+	                  </div>
+            	</div>
+            </div>
+         
+        </div>
+    </div>
+</section>
+
+<section class="rocket-fuel-sec team-members-sec  page-section" id="our-team">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+               <h3 class="main-heading-index-new white-heading wow slideInLeft"><span>Management</span><b>Team</b></h3>
+               <p class="text-center color-white small-heading wow slideInRight"></p>
+            </div>
+        </div>
+        <div class="row wow slideInUp">
+            <div class="col-md-3">
+            	<div class="team-box-new">
+                        <img src="assets/images_old/new-img/romilSir.jpg" class="img-fluid">
+                        <h5 class="sub-heading">MR. ROMIL JAIN</h5>
+                        <p>Co-Founder & Director</p>
+                        <p>A certified Global CMBS Analyst from S&P, he is renowned for his dynamic interests and taking up....</p>
+                        <p><a href="#" type="button" data-toggle="modal" data-target="#team-modal">View More</a></p>
+                    </div>
+            </div>
+            <div class="col-md-3">
+            	<div class="team-box-new">
+                        <img src="assets/images_old/new-img/alokSir.jpg" class="img-fluid">
+                        <h5 class="sub-heading">MR. ALOK AGRAWAL</h5>
+                        <p>Co-Founder & Director</p>
+                        <p>He is having around a decade of experience in Software Development and Team Management.... </p>
+                        <p><a href="#" type="button" data-toggle="modal" data-target="#team-modal-2">View More</a></p>
+                    </div>
+            </div>
+            <div class="col-md-3">
+            	<div class="team-box-new">
+                        <img src="assets/images_old/new-img/mohitSir.jpg" class="img-fluid">
+                        <h5 class="sub-heading">MR. MOHIT SOOD</h5>
+                        <p>Co-Founder & Director</p>
+                        <p>He is a specialist in finance field, having secured his MBA degree from Birmingham City....</p>
+                        <p><a href="#" type="button" data-toggle="modal" data-target="#team-modal-3">View More</a></p>
+                    </div>
+            </div>
+            <div class="col-md-3">
+            	<div class="team-box-new">
+                        <img src="assets/images_old/new-img/AdarshSir.png" class="img-fluid">
+                        <h5 class="sub-heading">MR. ADARSH PANDA</h5>
+                        <p>Chief Technology Officer (CTO)</p>
+                        <p>Adarsh is seasoned technologist specialising in AI/ML and Big Data. He has led large technology....</p>
+                        <p><a href="#" type="button" data-toggle="modal" data-target="#team-modal-4">View More</a></p>
+                    </div>
+            </div>
+        </div>
+        <div class="text-center">
+            <a href="/team-members" target="_blank" class="purple-btn-index">View All Team Members</a>
+        </div>
+    </div>
+</section>
+
+
+<section class="contact-us-new" id="contact">
+    <div class="container container-padding">
+         <div class="row">
+            <div class="col-md-12">
+               <h3 class="main-heading-index-new wow slideInLeft"><span>Contact</span><b>Get In Touch</b></h3>
+               <p class="text-center small-heading wow slideInRight"></p>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-6">
+                <div class="address-outer-box wow slideInLeft">
+                    <div class="address-info ">
+                      <img src="assets/images_old/new-img/contact.png">
+                      <h4>020 8405 0520</h4>
+                    </div>
+
+                    <div class="address-info">
+                      <img src="assets/images_old/new-img/location.png">
+                      <h4>5 Coombe Wood Hill, Sanderstead, Purley, CR8 1EB, United Kingdom</h4>
+                    </div>
+
+                    <div class="address-info">
+                      <img src="assets/images_old/new-img/mail.png">
+                      <h4>marketing@theartw.com</h4>
+                    </div>
+                </div>
+
+
+            </div>
+            <div class="col-md-6">
+              <div class="contact-form-new wow slideInUp">
+                   <form method="POST" action="/contact_us" id="contact_form">
+                    <div class="row">
+                      <div class="col-md-12">
+                        <div class="form-group">
+                          <input type="text" name="name" data-rule-required="true" data-msg-required="Please enter name." class="form-control" placeholder="Full Name">
+                        </div>
+                      </div>
+                      <div class="col-md-12">
+                         <div class="form-group">
+                            <input type="email" name="email" data-rule-required="true" data-msg-required="Please enter email address." class="form-control" placeholder="Email ID">
+                          </div>
+                      </div>
+                      
+                    </div>
+                    <div class="row">
+                      <div class="col-md-12">
+                        <div class="form-group">
+                           <textarea class="form-control" data-rule-required="true" data-msg-required="Please enter your message." name="message" rows="3" placeholder="Tell us what we can help you with"></textarea>
+                        </div>
+                      </div>
+                    </div>
+
+                      <div class="mt-30">
+                        <button type="submit" id="submit_login" class="purple-btn-index" >Submit</button>
+                      </div>
+                    </form>
+                 </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+
+<footer class="footer-box">
+   <div class="container">
+        <div class="row">
+          <div class="col-md-8">
+            <div class="extra-links">
+              <ul>
+                <li>
+                  <a href="#about">About</a>
+                </li>
+                 <li>
+                  <a href="#contact">Contact Us</a>
+                </li>
+                <li>
+                  <a href="/faq">FAQs</a>
+                </li>
+                <li>
+                  <a href="/blogs">Blogs</a>
+                </li>
+               <!--  <li>
+                  <a href="/crypto-guide">Crypto guide</a>
+                </li> -->
+                <li>
+                  <a href="/privacy-policy">Privacy Policy</a>
+                </li>
+                <li>
+                  <a href="/terms-conditions">Terms & Conditions</a>
+                </li>
+                <li>
+                  <a href="/cookie-policy">Cookie policy</a>
+                </li>
+              </ul>
+            </div>
+            <div class="copy-right">
+             <p>© Copyright 2020 - ARTW. All Right Reserved by <a href="http://questglt.com/" target="_blank" style="color: #fff !important;text-decoration: underline;">Quest GLT</a></p>
+           </div>
+          </div>
+           <div class="col-md-4">
+            <div class="extra-links social-links">
+              <ul>
+                <li>
+                  <a href=""><span><i class="fab fa-telegram"></i></span></a>
+                </li>
+                <li>
+                  <a href=""><span><i class="fab fa-twitter"></i></span></a>
+                </li>
+                <li>
+                  <a href=""><span><i class="fab fa-facebook-f"></i></span></a>
+                </li>
+                <li>
+                  <a href=""><span><i class="fab fa-instagram"></i></span></a>
+                </li>
+                
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+</footer>
+
+
+<!-- Modal -->
+<div class="modal fade team-modal-new" id="team-modal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-body">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+
+        <div class="team-box-new">
+            <div class="row">
+                <div class="col-md-5">
+                    <img src="assets/images_old/new-img/romilSir.jpg" class="img-fluid">
+                </div>
+                <div class="col-md-7">
+                    <h5 class="sub-heading">MR. ROMIL JAIN</h5>
+                    <p>Co-Founder & Director</p>
+                    <p>A certified Global CMBS Analyst from S&P, he is renowned for his dynamic interests and taking up challenging assignments. His inclination towards finance & research comes from his engineering background (BE, Electronics & Communication) where he realized that every new idea requires a viable funding and hence decided to pursue MBA (Finance). In a short career span, he has created four different teams, including counterparty risk management analysis tool for S&P – London.</p>
+                    <div class="social-icon">
+                        <a href="https://www.instagram.com/romiljain10/?hl=en" target="blank"><img src="assets/images/new-img/instagram.png"></a>
+                        <a href="https://www.facebook.com/romil.jain.1800?hc_ref=ARTzJt4ynu5ouihtRbAC7-oMWHxMFfRIGHlUbi7r1kyePNa8dQwNxEDgFSoozr0STRE&amp;__tn__=lCH-R" target="blank"><img src="assets/images/new-img/facebook.png"></a>
+                        <a href="https://www.linkedin.com/in/romiljain07/" target="blank"><img src="assets/images/new-img/linkdin.png"></a>
+                    </div>
+                </div>
+            </div>
+            
+            
+        </div>
+       
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="modal fade team-modal-new" id="team-modal-2" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-body">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+
+        <div class="team-box-new">
+            <div class="row">
+                <div class="col-md-5">
+                    <img src="assets/images_old/new-img/alokSir.jpg" class="img-fluid">
+                </div>
+                <div class="col-md-7">
+                    <h5 class="sub-heading">MR. ALOK AGRAWAL</h5>
+                    <p>Co-Founder & Director</p>
+                    <p>He is having around a decade of experience in Software Development and Team Management and has worked with Fortune 50 Companies like HSBC and United Health Group. He has been awarded with many accolades for his work by his clients and organizations. He is BE (Computer Science) from one of the top colleges in MP—SGSITS.</p>
+                    <div class="social-icon">
+                        <a href="https://www.instagram.com/alok.agrawal.94695/" target="blank"><img src="assets/images/new-img/instagram.png"></a>
+                        <a href="https://www.facebook.com/alok.agrawal.94695" target="blank"><img src="assets/images/new-img/facebook.png"></a>
+                        <a href="https://www.linkedin.com/in/alok-agrawal-21a27221/" target="blank"><img src="assets/images/new-img/linkdin.png"></a>
+                    </div>
+                </div>
+            </div>
+            
+            
+        </div>
+       
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="modal fade team-modal-new" id="team-modal-3" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-body">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+
+        <div class="team-box-new">
+            <div class="row">
+                <div class="col-md-5">
+                    <img src="assets/images_old/new-img/mohitSir.jpg" class="img-fluid">
+                </div>
+                <div class="col-md-7">
+                    <h5 class="sub-heading">MR. MOHIT SOOD</h5>
+                    <p>Co-Founder & Director</p>
+                    <p>He is a specialist in finance field, having secured his MBA degree from Birmingham City University (England). An entrepreneur by heart, he successfully set up a transport company and now providing IT consultancy to enhance the automation initiatives in transport sector. He has worked on varied range of services and is currently leading our project deliveries. He has an active interest in playing guitar, football and cricket.</p>
+                    <div class="social-icon">
+                        <a href="https://www.instagram.com/mohitsood1/" target="blank"><img src="assets/images/new-img/instagram.png"></a>
+                        <a href="https://www.facebook.com/mohit.sood.33" target="blank"><img src="assets/images/new-img/facebook.png"></a>
+                        <a href="https://www.linkedin.com/in/mohit-sood-b1416322/" target="blank"><img src="assets/images/new-img/linkdin.png"></a>
+                    </div>
+                </div>
+            </div>
+            
+            
+        </div>
+       
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="modal fade team-modal-new" id="team-modal-4" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-body">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+
+        <div class="team-box-new">
+            <div class="row">
+                <div class="col-md-5">
+                    <img src="assets/images_old/new-img/AdarshSir.png" class="img-fluid">
+                </div>
+                <div class="col-md-7">
+                    <h5 class="sub-heading">MR. ADARSH PANDA</h5>
+                    <p>Chief Technology Officer (CTO)</p>
+                    <p>Adarsh is seasoned technologist specialising in AI/ML and Big Data. Over the years having started as a technologist, he has made transition onto data & analytics consulting and management roles. This involves using conventional and unconventional data to solve critical business problems for investment management, capital market, financial services firms. He is passionate about emerging technologies and orchestrating them to deliver change programs in support of target operating model. Having worked considerable number of years in the industry, He find it fascinating to hear thoughts from industry leaders and specially C level clients around role of technology and considers the financial services industry currently stands at an interesting juncture when technology is looking to disrupt traditional business models, especially with potential development of things like Quantum computing.</p>
+                    <div class="social-icon">
+                        <a href="#" target="blank"><img src="assets/images/new-img/instagram.png"></a>
+                        <a href="#" target="blank"><img src="assets/images/new-img/facebook.png"></a>
+                        <a href="https://www.linkedin.com/in/adarsh-panda-12739b19/" target="blank"><img src="assets/images/new-img/linkdin.png"></a>
+                    </div>
+                </div>
+            </div>
+            
+            
+        </div>
+       
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+
+
+<!-- <div class="popup-overlay" style="display: flex;">
+  <div class="popup" style="color:rgba(0, 0, 0, 0.5)">
+    <p>This website uses cookies in order to offer you the most relevant information. Please accept cookies for optimal performance.</p>
+    <a href="" class="submit-cookie purple-btn-index">Yes,I accept Cookies</a>&nbsp;
+    <a href="" class="purple-btn-index">No, thanks</a>
+  </div>
+</div> -->
+
+
+
+
+
+
+
+
+
+
+
+
+<a href="#" class="scroll_top" title="Scroll to Top" style="display: block;"><i class="fas fa-arrow-up"></i></a>
+	<!-- JQuery -->
+        <script type="text/javascript" src="assets/js/jquery-3.3.1.min.js"></script>
+        <!-- <script type="text/javascript" src="assets/js/jquery-1.11.3.min.js"></script> -->
+        <!-- Bootstrap Core JavaScript -->
+        <script type="text/javascript" src="assets/js/bootstrap.min.js"></script>
+        <!-- dropdownhover effects JavaScript -->
+        <script type="text/javascript" src="assets/js/bootstrap-dropdownhover.min.js"></script>
+        <!-- wow JavaScript -->
+        <script type="text/javascript" src="assets/js/wow.min.js"></script>
+        <!-- slick JavaScript -->
+        <script type="text/javascript" src="assets/js/slick.js"></script>
+         <script type="text/javascript" src="assets/js/slick.min.js"></script>
+
+        <!-- Custom JavaScript -->
+        <script type="text/javascript" src="assets/js/custom.js"></script>
+        <script src="/assets/js/jquery.validate.min.js"></script>
+
+
+        <script>
+        $('.navbar-collapse a').click(function(){
+            $(".navbar-collapse").collapse('hide');
+        });
+    </script>
+
+        <script type="text/javascript">
+
+        // $(document).ready(function(){
+        // $('.submit-cookie').click(function(){
+        //     $('.popup-overlay').fadeOut();
+        //     $('.popup-overlay').css("display", "flex");
+        //   });
+        // });
+
+        // function no_thanks(){
+        //   location.reload();
+        // }
+
+        $('#contact_form').validate({
+              onfocusout: function(element) {
+              this.element(element);
+              },
+              errorClass: 'error_validate',
+              errorElement:'span',
+              highlight: function(element, errorClass) {
+              $(element).removeClass(errorClass);
+              },
+              submitHandler:function(form)
+                 {
+                   $('#submit_login').attr('disabled',true);
+                   form.submit();
+                 }
+              });
+            </script>
+          <script type="text/javascript">
+            $(".banner-slider").slick({
+                dots: true,
+                autoplay: true,
+                autoplaySpeed: 3000,
+                infinite: true,
+                arrows: false,
+                slidesToShow: 1,
+                slidesToScroll: 1,
+                responsive: [
+                  {
+                    breakpoint: 768,
+                    settings: {
+                      arrows: false,
+                      centerMode: false,
+                      centerPadding: '40px',
+                      slidesToShow: 1,
+                      slidesToScroll: 1
+                    }
+                  },
+                  {
+                    breakpoint: 480,
+                    settings: {
+                      arrows: false,
+                      centerMode: false,
+                      centerPadding: '40px',
+                      slidesToShow: 1,
+                      slidesToScroll: 1
+                    }
+                  }
+                  ]
+              });
+
+             $(".mockup-slider").slick({
+                dots: false,
+                autoplay: true,
+                autoplaySpeed: 3000,
+                infinite: true,
+                arrows: true,
+                slidesToShow: 1,
+                slidesToScroll: 1,
+                responsive: [
+                  {
+                    breakpoint: 768,
+                    settings: {
+                      arrows: false,
+                      centerMode: false,
+                      centerPadding: '40px',
+                      slidesToShow: 1,
+                      slidesToScroll: 1
+                    }
+                  },
+                  {
+                    breakpoint: 480,
+                    settings: {
+                      arrows: false,
+                      centerMode: false,
+                      centerPadding: '40px',
+                      slidesToShow: 1,
+                      slidesToScroll: 1
+                    }
+                  }
+                  ]
+              });
+
+             $(".blog-slider").slick({
+                dots: true,
+                autoplay: true,
+                autoplaySpeed: 3000,
+                infinite: true,
+                arrows: true,
+                slidesToShow: 3,
+                slidesToScroll: 1,
+                responsive: [
+                  {
+                    breakpoint: 768,
+                    settings: {
+                      arrows: false,
+                      centerMode: false,
+                      centerPadding: '40px',
+                      slidesToShow: 1,
+                      slidesToScroll: 1
+                    }
+                  },
+                  {
+                    breakpoint: 480,
+                    settings: {
+                      arrows: false,
+                      centerMode: false,
+                      centerPadding: '40px',
+                      slidesToShow: 1,
+                      slidesToScroll: 1
+                    }
+                  }
+                  ]
+              });
+           
+        </script>
+           <script>
+               $("#main-nav li .nav-close").click(function(event) {
+                    $(".navbar-collapse").collapse('hide');
+                });
+            </script>
+
+            <script type="text/javascript">
+                $(window).scroll(function() {
+                        var scrollDistance = $(window).scrollTop();
+                        $('.page-section').each(function(i) {
+                                if ($(this).position().top <= scrollDistance + 100) {
+                                        $('.navigation li.active').removeClass('active');
+                                        $('.navigation li').eq(i).addClass('active');
+                                }
+                        });
+                }).scroll();
+            </script>
+            <script type="text/javascript">
+                 var main_url=window.location.href.split("#")[0];
+                 var hash_tag=window.location.href.split("#")[1];
+
+                 if(hash_tag!='' && hash_tag!=undefined)
+                 {
+                  window.location.href=main_url;
+                 }
+            </script>
+
+            <script>
+            	(function() {
+
+					  // VARIABLES
+					  const timeline = document.querySelector(".timeline ol"),
+					    elH = document.querySelectorAll(".timeline li > div"),
+					    arrows = document.querySelectorAll(".timeline .arrows .arrow"),
+					    arrowPrev = document.querySelector(".timeline .arrows .arrow__prev"),
+					    arrowNext = document.querySelector(".timeline .arrows .arrow__next"),
+					    firstItem = document.querySelector(".timeline li:first-child"),
+					    lastItem = document.querySelector(".timeline li:last-child"),
+					    xScrolling = 410,
+					    disabledClass = "disabled";
+
+					  // START
+					  window.addEventListener("load", init);
+
+					  function init() {
+					    setEqualHeights(elH);
+					    animateTl(xScrolling, arrows, timeline);
+					    setSwipeFn(timeline, arrowPrev, arrowNext);
+					    setKeyboardFn(arrowPrev, arrowNext);
+					  }
+
+					  // SET EQUAL HEIGHTS
+					  function setEqualHeights(el) {
+					    let counter = 0;
+					    for (let i = 0; i < el.length; i++) {
+					      const singleHeight = el[i].offsetHeight;
+
+					      if (counter < singleHeight) {
+					        counter = singleHeight;
+					      }
+					    }
+
+					    for (let i = 0; i < el.length; i++) {
+					      el[i].style.height = `${counter}px`;
+					    }
+					  }
+
+					  // CHECK IF AN ELEMENT IS IN VIEWPORT
+					  // http://stackoverflow.com/questions/123999/how-to-tell-if-a-dom-element-is-visible-in-the-current-viewport
+					  function isElementInViewport(el) {
+					    const rect = el.getBoundingClientRect();
+					    return (
+					      rect.top >= 0 &&
+					      rect.left >= 0 &&
+					      rect.bottom <= (window.innerHeight || document.documentElement.clientHeight) &&
+					      rect.right <= (window.innerWidth || document.documentElement.clientWidth)
+					    );
+					  }
+
+					  // SET STATE OF PREV/NEXT ARROWS
+					  function setBtnState(el, flag = true) {
+					    if (flag) {
+					      el.classList.add(disabledClass);
+					    } else {
+					      if (el.classList.contains(disabledClass)) {
+					        el.classList.remove(disabledClass);
+					      }
+					      el.disabled = false;
+					    }
+					  }
+
+					  // ANIMATE TIMELINE
+					  function animateTl(scrolling, el, tl) {
+					    let counter = 0;
+					    for (let i = 0; i < el.length; i++) {
+					      el[i].addEventListener("click", function() {
+					        if (!arrowPrev.disabled) {
+					          arrowPrev.disabled = true;
+					        }
+					        if (!arrowNext.disabled) {
+					          arrowNext.disabled = true;
+					        }
+					        const sign = (this.classList.contains("arrow__prev")) ? "" : "-";
+					        if (counter === 0) {
+					          tl.style.transform = `translateX(-${scrolling}px)`;
+					        } else {
+					          const tlStyle = getComputedStyle(tl);
+					          // add more browser prefixes if needed here
+					          const tlTransform = tlStyle.getPropertyValue("-webkit-transform") || tlStyle.getPropertyValue("transform");
+					          const values = parseInt(tlTransform.split(",")[4]) + parseInt(`${sign}${scrolling}`);
+					          tl.style.transform = `translateX(${values}px)`;
+					        }
+
+					        setTimeout(() => {
+					          isElementInViewport(firstItem) ? setBtnState(arrowPrev) : setBtnState(arrowPrev, false);
+					          isElementInViewport(lastItem) ? setBtnState(arrowNext) : setBtnState(arrowNext, false);
+					        }, 1100);
+
+					        counter++;
+					      });
+					    }
+					  }
+
+					  // ADD SWIPE SUPPORT FOR TOUCH DEVICES
+					  function setSwipeFn(tl, prev, next) {
+					    const hammer = new Hammer(tl);
+					    hammer.on("swipeleft", () => next.click());
+					    hammer.on("swiperight", () => prev.click());
+					  }
+
+					  // ADD BASIC KEYBOARD FUNCTIONALITY
+					  function setKeyboardFn(prev, next) {
+					    document.addEventListener("keydown", (e) => {
+					      if ((e.which === 37) || (e.which === 39)) {
+					        const timelineOfTop = timeline.offsetTop;
+					        const y = window.pageYOffset;
+					        if (timelineOfTop !== y) {
+					          window.scrollTo(0, timelineOfTop);
+					        }
+					        if (e.which === 37) {
+					          prev.click();
+					        } else if (e.which === 39) {
+					          next.click();
+					        }
+					      }
+					    });
+					  }
+
+					})();
+            </script>
+
+                           <script>
+             
+            // Set the date we're counting down to
+                    var countDownDate = new Date("15 June, 2021 12:00:00").getTime();
+
+                    // Update the count down every 1 second
+                    var x = setInterval(function() {
+
+                      // Get todays date and time
+                      var now = new Date().getTime();
+
+                      // Find the distance between now an the count down date
+                      var distance = countDownDate - now;
+
+                      // Time calculations for days, hours, minutes and seconds
+                      var days = Math.floor(distance / (1000 * 60 * 60 * 24));
+                      var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+                      var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+                      var seconds = Math.floor((distance % (1000 * 60)) / 1000); 
+                      
+                      //Zeros
+                    var hours = (hours.toLocaleString(undefined,{minimumIntegerDigits: 2}));  
+                      
+                    var minutes = (minutes.toLocaleString(undefined,{minimumIntegerDigits: 2}));
+                      
+                    var seconds = (seconds.toLocaleString(undefined,{minimumIntegerDigits: 2}));
+                      
+                     
+                      
+                      // Display the result in the element with id="demo"
+                      document.getElementById("daysTicker").innerHTML = days;
+                      document.getElementById("hoursTicker").innerHTML = hours;
+                      document.getElementById("minsTicker").innerHTML = minutes;
+                      document.getElementById("secsTicker").innerHTML = seconds;
+                      
+                      // If the count down is finished, write some text 
+                      if (distance < 0) {
+                        clearInterval(x);
+                        document.getElementById("countdown").innerHTML = "THE CAMPAIGN BEGINS";
+                      }
+                    }, 1000);
+
+            </script>
+    </body>
+</html>
+
+
+
+ 
