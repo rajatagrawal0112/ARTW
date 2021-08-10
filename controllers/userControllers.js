@@ -124,30 +124,33 @@ const submitForgot = async (req, res) => {
     }
 }
 
+
 const submitUser = async (req, res) => {
     // if(req.body['g-recaptcha-response'] == undefined || req.body['g-recaptcha-response'] == '' || req.body['g-recaptcha-response'] == null){
     //     req.flash('err_msg', 'Please select captcha first.');
     //     res.redirect('/Signup');
     // }
     // else{
+
+    try{
     const secretKey = "6LcQx_AaAAAAAJmTY794kuLiHyURsR_uu-4Wqixg";
 
     const verificationURL = "https://www.google.com/recaptcha/api/siteverify?secret=" + secretKey + "&response=" + req.body['g-recaptcha-response'] + "&remoteip=" + req.connection.remoteAddress;
 
     request(verificationURL, async function (error, response, body2) {
+        console.log(body2)
         let body = JSON.parse(body2);
 
         if (error && !body.success) {
             req.flash('err_msg', 'Failed captcha verification.');
             res.redirect('/Signup');
         } else {
-            let user = await userServices.checkUser(req.body.email);
-            if (user) {
+            let old_user = await userServices.checkUser(req.body.email);
+            if (old_user) {
                 req.flash('err_msg', 'Email already exists. Please enter another email.');
                 res.redirect('/Signup');
             }
             else {
-                console.log(req.body.ref_link, '===========req.body.ref_link');
                 let ref_link;
                 if (req.body.ref_link != "" && req.body.ref_link != undefined) {
                     ref_link = req.body.ref_link.trim();
@@ -157,7 +160,7 @@ const submitUser = async (req, res) => {
                 if (req.body.password == req.body.conf_pass) {
                     let mystr = await userServices.createCipher(req.body.password);
                     let created = await userServices.createAtTimer();
-                    let new_user=await userServices.addUser(req.body, mystr, created);
+                    let new_user=await userServices.addUser(req.body, created,mystr);
                     let user = await userServices.checkUser(req.body.email);
                     if (ref_link != "") {
                         let refData = await userServices.referData(user.ref_code, ref_link, user._id, created);
@@ -187,6 +190,9 @@ const submitUser = async (req, res) => {
         }
     })
     //}
+}catch(error){
+    console.log(error);
+}
 }
 
 const userLogin = async (req, res) => {
@@ -194,15 +200,15 @@ const userLogin = async (req, res) => {
     let password = req.body.password.trim();
     let mystr = await userServices.createCipher(password);
     if (user) {
-        let userLogin = await userServices.checkUserPass(req.body.email.trim(), mystr);
+        let userlogin = await userServices.checkUserPass(req.body.email.trim(), mystr);
         if (userLogin) {
-            let status = userLogin.status;
-            let email_status = userLogin.email_verify_status;
+            let status = userlogin.status;
+            let email_status = userlogin.email_verify_status;
             if (status == 'active' && email_status == 'verified') {
                 req.session.success = true;
-                req.session.re_us_id = userLogin._id;
-                req.session.re_usr_name = userLogin.name;
-                req.session.re_usr_email = userLogin.email;
+                req.session.re_us_id = userlogin._id;
+                req.session.re_usr_name = userlogin.name;
+                req.session.re_usr_email = userlogin.email;
                 req.session.is_user_logged_in = true;
                 res.redirect("/dashboard");
             } else {
