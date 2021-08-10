@@ -15,7 +15,7 @@ const app = express();
 //const probit = require('./routes/probit.js');
 
 //db connectivity mongodb://user:<secure password 2>@localhost:27017/user_db?authSource=admin
-mongoose.connect("mongodb://localhost/ARTW");
+mongoose.connect("mongodb://localhost/ARTW",{useNewUrlParser:true,useUnifiedTopology:true});
 // mongoose.connect('mongodb://artWuser:Lo16a89r68tmain@localhost:27017/ArtW_DB_live?authSource=admin', { useNewUrlParser: true, useUnifiedTopology: true })
 //    .then(() => console.log('MongoDB Database Connected'))
 //    .catch(err => console.log(err))
