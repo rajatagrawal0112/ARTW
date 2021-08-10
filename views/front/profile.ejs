@@ -89,26 +89,26 @@
                     
                     
                     <div class="tab-pane fade" id="info2" role="tabpanel" aria-labelledby="profile-tab">
-                    <form>
+                    <form method="POST" action="/profile/submit-change-pass">
                       <div class="dashboard-box">
                         <div class="create-wallet-block profile-input-form">
                             <div class="row">
                               <div class="col-md-4">
                                 <div class="form-group text-left">
                                   <label>Current Password</label>
-                                  <input class="form-control" type="password" placeholder="*******">
+                                  <input class="form-control" name = "old_pass" type="password" placeholder="*******">
                                 </div>
                               </div>
                               <div class="col-md-4">
                                 <div class="form-group text-left">
                                   <label>New Password</label>
-                             <input class="form-control" type="password" placeholder="*******">
+                             <input class="form-control" name="new_pass" type="password" placeholder="*******">
                                 </div>
                               </div>
                               <div class="col-md-4">
                                 <div class="form-group text-left">
                                    <label>Confirm Password</label>
-                             <input class="form-control" type="password" placeholder="*******">
+                             <input class="form-control" name="cnf_new_pass" type="password" placeholder="*******">
                                 </div>
                               </div>
                             </div>

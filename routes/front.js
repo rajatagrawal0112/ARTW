@@ -490,32 +490,27 @@ router.get('/change-password', isUser, function (req, res) {
 
 
 //***************** post changes password **************//
-router.post('/submit-change-pass', isUser, function (req, res) {
+router.post('/profile/submit-change-pass',isUser, function (req, res) {
   var user_id = req.session.re_us_id;
-  var old_pass = req.body.password;
-  var mykey1 = crypto.createCipher('aes-128-cbc', 'mypass');
-  var mystr1 = mykey1.update(old_pass, 'utf8', 'hex')
-  mystr1 += mykey1.final('hex');
+  var old_pass = req.body.old_pass;
+  var mystr1 = userServices.createCipher(old_pass);
+  const new_pass = req.body.new_pass;
   Registration.find({ '_id': user_id, 'password': mystr1 }, function (err, result) {
     if (err) {
       req.flash('err_msg', 'Something is worng');
       res.redirect('/change-password');
     } else {
       if (result.length > 0 && result.length == 1) {
-        var check_old_pass = result[0].password;
-        var mykey2 = crypto.createCipher('aes-128-cbc', 'mypass');
-        var new_pass = mykey2.update(req.body.new_password, 'utf8', 'hex')
-        new_pass += mykey2.final('hex');
-
-        if (mystr1 != new_pass) {
+        const newpassCipher =  userServices.createCipher(new_pass);
+        if (mystr1 != newpassCipher) {
           // console.log(result);
-          Registration.update({ _id: user_id }, { $set: { password: new_pass } }, { upsert: true }, function (err) {
+          Registration.updateOne({ _id: user_id }, { $set: { password: newpassCipher } }, { upsert: true }, function (err) {
             if (err) {
               req.flash('err_msg', 'Something went wrong.');
               res.redirect('/change-password');
             } else {
               req.flash('success_msg', 'Password changed successfully.');
-              res.redirect('/change-password');
+              res.redirect('/profile');
             }
           });
         }

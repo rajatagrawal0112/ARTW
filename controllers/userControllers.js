@@ -145,13 +145,12 @@ const submitUser = async (req, res) => {
             req.flash('err_msg', 'Failed captcha verification.');
             res.redirect('/Signup');
         } else {
-            let user = await userServices.checkUser(req.body.email);
-            if (user) {
+            let old_user = await userServices.checkUser(req.body.email);
+            if (old_user) {
                 req.flash('err_msg', 'Email already exists. Please enter another email.');
                 res.redirect('/Signup');
             }
             else {
-                console.log(req.body.ref_link, '===========req.body.ref_link');
                 let ref_link;
                 if (req.body.ref_link != "" && req.body.ref_link != undefined) {
                     ref_link = req.body.ref_link.trim();
@@ -161,11 +160,7 @@ const submitUser = async (req, res) => {
                 if (req.body.password == req.body.conf_pass) {
                     let mystr = await userServices.createCipher(req.body.password);
                     let created = await userServices.createAtTimer();
-<<<<<<< HEAD
-                   const new_user = await userServices.addUser(req.body, ref_link, mystr, created);
-=======
-                    let new_user=await userServices.addUser(req.body, mystr, created);
->>>>>>> 334bce4f0eb7cb696bdc91f36932df2c0ab1cde1
+                    let new_user=await userServices.addUser(req.body, created,mystr);
                     let user = await userServices.checkUser(req.body.email);
                     if (ref_link != "") {
                         let refData = await userServices.referData(user.ref_code, ref_link, user._id, created);
@@ -183,7 +178,7 @@ const submitUser = async (req, res) => {
                         'Moreover, you can earn more by referring your friends and earn US$10 equivalent ARTW tokens every time your friend joins by using your referral code. Your friend will also get US$10 equivalent ARTW tokens for using your referral code !<br><br>\n\n' +
                         'Time: ' + created + '<br><br>\n\n'
                     'If this withdrawal attempt was not made by you it means someone visited your account. It may be an indication you have been the target of a phishing attempt and might want to consider moving your funds to a new wallet.' + '<br><br>\n\n' + 'Regards,<br>\nTheArtW Team<br>\nhttps://theartwcoin.com';
-                    // await mail(req.body.email, subject, text);
+                    await mail(req.body.email, subject, text);
                     req.flash('success_msg', 'User registered. Please verify to continue.');
                     res.redirect('/Verify_account');
                 }
@@ -196,7 +191,7 @@ const submitUser = async (req, res) => {
     })
     //}
 }catch(error){
-    console.log(error + "from here");
+    console.log(error);
 }
 }
 
@@ -204,17 +199,16 @@ const userLogin = async (req, res) => {
     let user = await userServices.checkUser(req.body.email);
     let password = req.body.password.trim();
     let mystr = await userServices.createCipher(password);
-    console.log(mystr);
     if (user) {
-        let userLogin = await userServices.checkUserPass(req.body.email.trim(), mystr);
+        let userlogin = await userServices.checkUserPass(req.body.email.trim(), mystr);
         if (userLogin) {
-            let status = userLogin.status;
-            let email_status = userLogin.email_verify_status;
+            let status = userlogin.status;
+            let email_status = userlogin.email_verify_status;
             if (status == 'active' && email_status == 'verified') {
                 req.session.success = true;
-                req.session.re_us_id = userLogin._id;
-                req.session.re_usr_name = userLogin.name;
-                req.session.re_usr_email = userLogin.email;
+                req.session.re_us_id = userlogin._id;
+                req.session.re_usr_name = userlogin.name;
+                req.session.re_usr_email = userlogin.email;
                 req.session.is_user_logged_in = true;
                 res.redirect("/dashboard");
             } else {
@@ -272,17 +266,10 @@ const dashboard = async (req, res) => {
         let user = await userServices.checkUserId(user_id);
         let ref_code = user.ref_code;
         let rates = await userServices.getRates();
-<<<<<<< HEAD
-        let usdValue = rates.usdValue ;
-        let etherValue = rates.etherValue;
-        let btcValue = rates.btcValue;
-        let bnbValue = rates.bnbValue;
-=======
         // let usdValue = rates.usdValue;
         // let etherValue = rates.etherValue;
         // let btcValue = rates.btcValue;
         // let bnbValue = rates.bnbValue;
->>>>>>> 334bce4f0eb7cb696bdc91f36932df2c0ab1cde1
         let loginwallet = await blockchainServices.importWalletFindId(user_id);
         if (loginwallet) {
             let result = await blockchainServices.userWalletFindId(loginwallet.wallet_id);

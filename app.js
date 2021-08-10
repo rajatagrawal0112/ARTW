@@ -50,6 +50,7 @@ app.use(session({
 }));
 app.use(flash());
 
+
 hbs.registerPartials(__dirname + '/views/admin/admin-login/partials');
 
 // app.get('*', function (req, res, next) {
