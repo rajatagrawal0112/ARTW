@@ -124,17 +124,21 @@ const submitForgot = async (req, res) => {
     }
 }
 
+
 const submitUser = async (req, res) => {
     // if(req.body['g-recaptcha-response'] == undefined || req.body['g-recaptcha-response'] == '' || req.body['g-recaptcha-response'] == null){
     //     req.flash('err_msg', 'Please select captcha first.');
     //     res.redirect('/Signup');
     // }
     // else{
+
+    try{
     const secretKey = "6LcQx_AaAAAAAJmTY794kuLiHyURsR_uu-4Wqixg";
 
     const verificationURL = "https://www.google.com/recaptcha/api/siteverify?secret=" + secretKey + "&response=" + req.body['g-recaptcha-response'] + "&remoteip=" + req.connection.remoteAddress;
 
     request(verificationURL, async function (error, response, body2) {
+        console.log(body2)
         let body = JSON.parse(body2);
 
         if (error && !body.success) {
@@ -157,7 +161,7 @@ const submitUser = async (req, res) => {
                 if (req.body.password == req.body.conf_pass) {
                     let mystr = await userServices.createCipher(req.body.password);
                     let created = await userServices.createAtTimer();
-                    await userServices.addUser(req.body, ref_link, mystr, created);
+                   const new_user = await userServices.addUser(req.body, ref_link, mystr, created);
                     let user = await userServices.checkUser(req.body.email);
                     if (ref_link != "") {
                         let refData = await userServices.referData(user.ref_code, ref_link, user._id, created);
@@ -175,7 +179,7 @@ const submitUser = async (req, res) => {
                         'Moreover, you can earn more by referring your friends and earn US$10 equivalent ARTW tokens every time your friend joins by using your referral code. Your friend will also get US$10 equivalent ARTW tokens for using your referral code !<br><br>\n\n' +
                         'Time: ' + created + '<br><br>\n\n'
                     'If this withdrawal attempt was not made by you it means someone visited your account. It may be an indication you have been the target of a phishing attempt and might want to consider moving your funds to a new wallet.' + '<br><br>\n\n' + 'Regards,<br>\nTheArtW Team<br>\nhttps://theartwcoin.com';
-                    await mail(req.body.email, subject, text);
+                    // await mail(req.body.email, subject, text);
                     req.flash('success_msg', 'User registered. Please verify to continue.');
                     res.redirect('/Verify_account');
                 }
@@ -187,12 +191,16 @@ const submitUser = async (req, res) => {
         }
     })
     //}
+}catch(error){
+    console.log(error + "from here");
+}
 }
 
 const userLogin = async (req, res) => {
     let user = await userServices.checkUser(req.body.email);
     let password = req.body.password.trim();
     let mystr = await userServices.createCipher(password);
+    console.log(mystr);
     if (user) {
         let userLogin = await userServices.checkUserPass(req.body.email.trim(), mystr);
         if (userLogin) {
@@ -260,7 +268,7 @@ const dashboard = async (req, res) => {
         let user = await userServices.checkUserId(user_id);
         let ref_code = user.ref_code;
         let rates = await userServices.getRates();
-        let usdValue = rates.usdValue;
+        let usdValue = rates.usdValue ;
         let etherValue = rates.etherValue;
         let btcValue = rates.btcValue;
         let bnbValue = rates.bnbValue;
