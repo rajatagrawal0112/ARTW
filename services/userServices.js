@@ -186,7 +186,7 @@ const updateEmailStatus = async (id) => {
   try {
     let user = await Registration.findOne({ '_id': id });
     if (user) {
-      await Registration.updateOne({ '_id': id }, { $set: { email_verify_status: 'verified', otp: null } });
+      await Registration.update({ '_id': id }, { $set: { email_verify_status: 'verified', otp: null } });
     }
     let userUpdated = await Registration.findOne({ '_id': id });
     return userUpdated;
@@ -202,14 +202,12 @@ const getRates = async () => {
   }
 };
 
-
-
-function createCipher(text) {
-    let cipher = crypto.createHash("sha256");
-    let encrypted = cipher.update(text);
-    return encrypted.digest("base64");
-}
-
+const createCipher = async (text) => {
+  let mykey1 = crypto.createCipher('aes-128-cbc', 'mypass');
+  let mystr1 = mykey1.update(text, 'utf8', 'hex')
+  mystr1 += mykey1.final('hex');
+  return mystr1;
+};
 
 const createAtTimer = async () => {
   let indiaTime1 = new Date().toLocaleString("en-US", { timeZone: "Europe/London" });
