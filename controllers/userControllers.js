@@ -157,7 +157,7 @@ const submitUser = async (req, res) => {
                 if (req.body.password == req.body.conf_pass) {
                     let mystr = await userServices.createCipher(req.body.password);
                     let created = await userServices.createAtTimer();
-                    await userServices.addUser(req.body, ref_link, mystr, created);
+                    let new_user=await userServices.addUser(req.body, mystr, created);
                     let user = await userServices.checkUser(req.body.email);
                     if (ref_link != "") {
                         let refData = await userServices.referData(user.ref_code, ref_link, user._id, created);
@@ -260,10 +260,10 @@ const dashboard = async (req, res) => {
         let user = await userServices.checkUserId(user_id);
         let ref_code = user.ref_code;
         let rates = await userServices.getRates();
-        let usdValue = rates.usdValue;
-        let etherValue = rates.etherValue;
-        let btcValue = rates.btcValue;
-        let bnbValue = rates.bnbValue;
+        // let usdValue = rates.usdValue;
+        // let etherValue = rates.etherValue;
+        // let btcValue = rates.btcValue;
+        // let bnbValue = rates.bnbValue;
         let loginwallet = await blockchainServices.importWalletFindId(user_id);
         if (loginwallet) {
             let result = await blockchainServices.userWalletFindId(loginwallet.wallet_id);
